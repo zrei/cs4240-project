@@ -17,7 +17,7 @@ public abstract class GrabAndFollow : MonoBehaviour, IGrabbable
     {
         transform.parent = grabbedTransform;
         transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
+        //transform.localRotation = Quaternion.identity;
         m_Rb.isKinematic = true;
         return GrabState.GRABBED;
     }

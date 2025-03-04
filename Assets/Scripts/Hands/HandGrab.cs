@@ -18,38 +18,52 @@ public class HandGrab : MonoBehaviour
     private List<IGrabbable> m_CurrGrabbedList = new();
     #endregion
 
-    private bool m_IsSubcribedToInput = false;
-    
+    private bool m_IsSubscribedToInput = false;
+
     private void OnEnable()
     {
         ToggleControls(true);
+        
     }
 
     private void OnDisable()
     {
         ToggleControls(false);
+        
     }
+
 
     #region Input
     private void ToggleControls(bool subscribe)
     {
-        if (subscribe && !m_IsSubcribedToInput)
+        if (subscribe && !m_IsSubscribedToInput)
         {
-            m_GrabInput.action.performed += OnGrabInput;
+            m_GrabInput.action.performed += OnGrabInputPerformed;
+            m_GrabInput.action.canceled += OnGrabInputCanceled;
+            m_GrabInput.action.Enable();
         }
-        else if (!subscribe && m_IsSubcribedToInput) {
-            m_GrabInput.action.performed -= OnGrabInput;
+        else if (!subscribe && m_IsSubscribedToInput)
+        {
+            m_GrabInput.action.performed -= OnGrabInputPerformed;
+            m_GrabInput.action.canceled -= OnGrabInputCanceled;
+            m_GrabInput.action.Disable();
         }
-        m_IsSubcribedToInput = subscribe;
+        m_IsSubscribedToInput = subscribe;
     }
 
-    private void OnGrabInput(InputAction.CallbackContext context)
+    private void OnGrabInputPerformed(InputAction.CallbackContext context)
     {
-        if (m_CurrentlyGrabbing)
+        
+        if (!m_CurrentlyGrabbing)
         {
             TryGrab();
         }
-        else
+    }
+
+    private void OnGrabInputCanceled(InputAction.CallbackContext context)
+    {
+        
+        if (m_CurrentlyGrabbing)
         {
             Release();
         }
@@ -59,13 +73,19 @@ public class HandGrab : MonoBehaviour
     #region Grab Handle
     private void TryGrab()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(m_GrabPositionRef.position, m_GrabRadius, Vector3.zero, 0, m_GrabbableLayer);
+        Vector3 direction = m_GrabPositionRef.forward;
+        float maxDistance = m_GrabRadius * 2;
+
+        RaycastHit[] hits = Physics.SphereCastAll(m_GrabPositionRef.position, m_GrabRadius, direction, maxDistance, m_GrabbableLayer);
+
+        Debug.Log($"Hits found: {hits.Length}");
 
         IGrabbable closest = null;
         float minDistance = 0f;
 
         foreach (RaycastHit hit in hits)
         {
+            Debug.Log( "hit some object");
             // any additional checks that need to be done here, e.g. tag checks
             IGrabbable grabbable = hit.transform.GetComponentInParent<IGrabbable>();
 
