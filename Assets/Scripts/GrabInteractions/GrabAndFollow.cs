@@ -13,7 +13,7 @@ public abstract class GrabAndFollow : MonoBehaviour, IGrabbable
         m_OriginalParent = transform.parent;
     }
 
-    public GrabState OnGrab(Transform grabbedTransform)
+    public virtual GrabState OnGrab(Transform grabbedTransform)
     {
         transform.parent = grabbedTransform;
         transform.localPosition = Vector3.zero;
