@@ -34,7 +34,9 @@ public class SegmentedCircularPlane : MonoBehaviour
         for (int i = 0; i < ColliderParent.childCount; ++i)
         {
             int index = i;
-            ColliderParent.GetChild(i).GetComponent<SegmentedCircularPlaneCollider>().TriggeredEvent += () => SegmentTouchedEvent(index);
+            SegmentedCircularPlaneCollider collider = ColliderParent.GetChild(i).GetComponent<SegmentedCircularPlaneCollider>();
+            collider.Init(m_InteractionMask);
+            collider.TriggeredEvent += () => SegmentTouchedEvent(index);
         }
     }
 }

@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SegmentedCircularPlaneCollider : MonoBehaviour
 {
-    [Header("Interaction")]
-    [SerializeField] private LayerMask m_InteractionMask;
-
     public VoidEvent TriggeredEvent;
 
-    public void Setup(Transform parent, float radius, float width, float height, float angle, string interactionLayerName, LayerMask interactionMask)
+    private LayerMask m_InteractionMask = -1;
+
+#if UNITY_EDITOR
+    public void Setup(Transform parent, float radius, float width, float height, float angle, string interactionLayerName)
     {
         transform.parent = parent;
         transform.localPosition = Vector3.zero;
@@ -18,9 +18,14 @@ public class SegmentedCircularPlaneCollider : MonoBehaviour
         collider.isTrigger = true;
         collider.center = new Vector3(0, 0, 0.25f * radius);
         collider.size = new Vector3(0.5f * width, height, 0.5f * radius);
-        m_InteractionMask = interactionMask;
 
         transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+    }
+#endif
+
+    public void Init(LayerMask interactionMask)
+    {
+        m_InteractionMask = interactionMask;
     }
 
     private void OnTriggerEnter(Collider other)
