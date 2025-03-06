@@ -9,11 +9,11 @@ public delegate void Vector3Event(Vector3 _);
 
 public static class GlobalEvents {
   
-    public static class UI {
-
-    }
-
-    public static class Player {
-
+    public static class StepsEvents
+    {
+        public delegate void StepEvent(Steps _);
+        
+        public static VoidEvent OnCompleteStep;
+        public static StepEvent OnGoToStep;
     }
 }
