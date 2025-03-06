@@ -78,7 +78,7 @@ public class CircularFillAreaEditor : Editor
             for (int i = 0; i <  m_Target.NumberSegments; ++i)
             {
                 SegmentedCircularPlaneCollider colliderObj = new GameObject("Collider " + i, typeof(BoxCollider), typeof(SegmentedCircularPlaneCollider)).GetComponent<SegmentedCircularPlaneCollider>();
-                colliderObj.Setup(m_Target.ColliderParent, m_Target.Radius, width, m_Target.Height, angleInterval * i, m_Target.InteractionLayerName, m_Target.InteractionMask);
+                colliderObj.Setup(m_Target.ColliderParent, m_Target.Radius, width, m_Target.Height, angleInterval * i, m_Target.InteractionLayerName);
             }
 
             PrefabUtility.RecordPrefabInstancePropertyModifications(m_Target.gameObject);
