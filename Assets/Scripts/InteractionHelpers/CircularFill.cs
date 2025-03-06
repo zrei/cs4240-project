@@ -3,15 +3,19 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(SegmentedCircularPlane))]
-public abstract class CircularFill : MonoBehaviour
+public class CircularFill : MonoBehaviour
 {
     [SerializeField, Range(0, 1)] private float m_RequiredFillPercentage;
+    [SerializeField] private bool m_AllowMultiInvoke = false;
 
     private List<bool> m_FilledSections;
     public int NumFilledSegments => m_FilledSections.Where(x => x).Count();
     public float CurrPercentage => NumFilledSegments / m_CircularPlane.NumberSegments;
 
     private SegmentedCircularPlane m_CircularPlane;
+    private bool m_HasBeenInvoked = false;
+    public FloatEvent OnPercentageChangeEvent;
+    public VoidEvent OnFillPercentage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -32,12 +36,13 @@ public abstract class CircularFill : MonoBehaviour
     private void OnSegmentTouch(int segmentIndex)
     {
         m_FilledSections[segmentIndex] = true;
+        OnPercentageChangeEvent?.Invoke(CurrPercentage);
 
-        if (CurrPercentage >= m_RequiredFillPercentage)
+        if ((m_AllowMultiInvoke || !m_HasBeenInvoked) && CurrPercentage >= m_RequiredFillPercentage)
         {
-            OnFillPercentage();
+            OnFillPercentage?.Invoke();
+
+            m_HasBeenInvoked = true;
         }
     }
-
-    protected abstract void OnFillPercentage();
 }
