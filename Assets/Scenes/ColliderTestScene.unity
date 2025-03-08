@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 2842988661027478990, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_GrabPositionRef
       value: 
-      objectReference: {fileID: 1403483290}
+      objectReference: {fileID: 0}
     - target: {fileID: 2842988661027478990, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_GrabbableLayer.m_Bits
       value: 1
@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 6736569015621532109, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_GrabPositionRef
       value: 
-      objectReference: {fileID: 1403483292}
+      objectReference: {fileID: 0}
     - target: {fileID: 6736569015621532109, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_GrabbableLayer.m_Bits
       value: 1
@@ -311,16 +311,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
---- !u!4 &1403483290 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1377325429498478140, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
-  m_PrefabInstance: {fileID: 1403483288}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1403483292 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 734491072109281532, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
-  m_PrefabInstance: {fileID: 1403483288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1851390288
 GameObject:
   m_ObjectHideFlags: 0
