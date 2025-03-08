@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class SegmentedCircularPlaneCollider : MonoBehaviour
@@ -20,6 +21,8 @@ public class SegmentedCircularPlaneCollider : MonoBehaviour
         collider.size = new Vector3(0.5f * width, height, 0.5f * radius);
 
         transform.localRotation = Quaternion.Euler(0f, angle, 0f);
+
+        EditorUtility.SetDirty(this);
     }
 #endif
 
@@ -30,7 +33,7 @@ public class SegmentedCircularPlaneCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.layer & m_InteractionMask) > 0)
+        if (((1 << other.gameObject.layer) & m_InteractionMask) != 0)
         {
             TriggeredEvent?.Invoke();
         }

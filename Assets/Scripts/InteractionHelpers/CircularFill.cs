@@ -7,19 +7,20 @@ public class CircularFill : MonoBehaviour
 {
     [SerializeField, Range(0, 1)] private float m_RequiredFillPercentage;
     [SerializeField] private bool m_AllowMultiInvoke = false;
-
+    
+    private SegmentedCircularPlane m_CircularPlane;
+    
     private List<bool> m_FilledSections;
     public int NumFilledSegments => m_FilledSections.Where(x => x).Count();
-    public float CurrPercentage => NumFilledSegments / m_CircularPlane.NumberSegments;
-
-    private SegmentedCircularPlane m_CircularPlane;
-    private bool m_HasBeenInvoked = false;
+    public float CurrPercentage => (float) NumFilledSegments / m_CircularPlane.NumberSegments;
     public FloatEvent OnPercentageChangeEvent;
     public VoidEvent OnFillPercentage;
+    private bool m_HasBeenInvoked = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
+        m_CircularPlane = GetComponent<SegmentedCircularPlane>();
         m_FilledSections = new List<bool>();
         for (int i = 0; i < m_CircularPlane.NumberSegments; ++i)
         {

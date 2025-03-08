@@ -24,6 +24,6 @@ public class DirtySkin : MonoBehaviour
 
     private void OnPercentageUpdate(float currPercentage)
     {
-
+        Debug.Log(currPercentage);
     }
 }
