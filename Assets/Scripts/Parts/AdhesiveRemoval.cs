@@ -8,7 +8,6 @@ public class AdhesiveRemoval : MonoBehaviour
     [SerializeField] private Transform m_TrackedTransform;
 
     [Header("Settings")]
-    // waiting for pinch?
     [SerializeField] private float m_MaxPullSpeed;
     [SerializeField] private float m_RequiredPullDistance;
 
@@ -17,7 +16,6 @@ public class AdhesiveRemoval : MonoBehaviour
     private Vector3 m_PreviousPosition;
     private bool m_IsBeingPulled = false;
     private bool m_HasBeenRemoved = false;
-
     private void Start()
     {
         m_Rigidbody.useGravity = false;
@@ -60,10 +58,8 @@ public class AdhesiveRemoval : MonoBehaviour
             float distanceMovedSoFarSquared = (m_TrackedTransform.position - m_InitialPosition).sqrMagnitude;
             float speed = (m_TrackedTransform.position - m_PreviousPosition).magnitude / Time.deltaTime;
 
-            Debug.Log(speed);
             if (speed > m_MaxPullSpeed)
-            {
-                
+            {                
                 Debug.Log("Exceeded");
                 // play sound or something
             }
@@ -72,6 +68,7 @@ public class AdhesiveRemoval : MonoBehaviour
             {
                 m_HasBeenRemoved = true;
                 m_Rigidbody.useGravity = true;
+                transform.parent = null;
                 Debug.Log("Removed!");
                 // handle
             }
