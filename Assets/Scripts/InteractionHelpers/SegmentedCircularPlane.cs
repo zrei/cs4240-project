@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 
 /// <summary>
 /// Use as a component to hook up with interactions that require touching a circle
@@ -22,12 +21,12 @@ public class SegmentedCircularPlane : MonoBehaviour
 #if UNITY_EDITOR
     public float Radius => m_Radius;
     public string InteractionLayerName => m_InteractionLayerName;
-    public Transform ColliderParent => m_ColliderParent;
     public Transform MeshTransform => m_MeshTransform;
     public float Height => m_Height;
     public LayerMask InteractionMask => m_InteractionMask;
 #endif    
     public IntEvent SegmentTouchedEvent;
+    public Transform ColliderParent => m_ColliderParent;
 
     private void Awake()
     {
