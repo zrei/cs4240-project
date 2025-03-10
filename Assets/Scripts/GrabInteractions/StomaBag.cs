@@ -1,108 +1,132 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Rigidbody))]
-public class StomaBag : GrabAndFollow
+[RequireComponent(typeof(Rigidbody), typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
+public class StomaBag : MonoBehaviour
 {
-
     [Header("Attachment")]
     [SerializeField] private Transform stomaConnector;
-
-    private Rigidbody rb;
-    private bool isAttached = true;
 
     [Header("Particle System")]
     [SerializeField] private ParticleSystem liquidParticles;
 
     [Header("Pouring Parameters")]
-    [SerializeField] private float pourThreshold = 0.7f; 
-    [SerializeField] private float maxEmissionRate = 50f; 
+    [SerializeField] private float pourThreshold = 0.7f;
+    [SerializeField] private float maxEmissionRate = 50f;
 
-    private Transform cubeTransform;
-    private Vector3 pourFaceNormal = Vector3.forward;
+    private Rigidbody _rb;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _grabInteractable;
+    private Transform _cubeTransform;
+    private Vector3 _pourFaceNormal = Vector3.forward;
+    private bool _isAttached = true;
 
-    private void Start()
+    private Vector3 _initialPosition;
+    private Quaternion _initialRotation;
+    private bool _isBeingGrabbed = false;
+
+    private void Awake()
     {
-        cubeTransform = transform;
-        if (liquidParticles == null)
-        {
-            Debug.LogError("Particle System is not assigned!");
-        }
-        else
-        {
-            var emission = liquidParticles.emission;
-            emission.rateOverTime = 0; 
-        }
+        _rb = GetComponent<Rigidbody>();
+        _grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        _cubeTransform = transform;
 
-        rb = GetComponent<Rigidbody>();
+        ConfigureGrabInteractable();
+        InitializeParticles();
         AttachToConnector();
     }
 
+    private void ConfigureGrabInteractable()
+    {
+        _grabInteractable.selectEntered.AddListener(OnGrabbed);
+        _grabInteractable.selectExited.AddListener(OnReleased);
+    }
+
+    private void InitializeParticles()
+    {
+        if (liquidParticles != null)
+        {
+            var emission = liquidParticles.emission;
+            emission.rateOverTime = 0;
+        }
+    }
 
     private void Update()
     {
-
         if (IsPouring())
         {
             float tiltAmount = CalculateTiltAmount();
             float emissionRate = Mathf.Lerp(0, maxEmissionRate, tiltAmount);
 
-
             var emission = liquidParticles.emission;
             emission.rateOverTime = emissionRate;
 
             if (!liquidParticles.isPlaying)
-            {
                 liquidParticles.Play();
-            }
         }
-        else
+        else if (liquidParticles.isPlaying)
         {
-            if (liquidParticles.isPlaying)
-            {
-                liquidParticles.Stop();
-            }
+            liquidParticles.Stop();
         }
+
+       
     }
 
-    public override GrabState OnGrab(Transform grabbedTransform)
+    private void OnGrabbed(SelectEnterEventArgs args)
     {
-        DetachFromConnector();
-        return base.OnGrab(grabbedTransform);
-    } 
+        _initialPosition = _cubeTransform.position;
+        _initialRotation = _cubeTransform.rotation;
+        _isBeingGrabbed = true;
+        _rb.isKinematic = false;
 
+ 
+    }
+
+    private void OnReleased(SelectExitEventArgs args)
+    {
+        _isBeingGrabbed = false;
+        float distanceMoved = Vector3.Distance(_cubeTransform.position, _initialPosition);
+        if (distanceMoved > 0.05f)
+        {
+            DetachFromConnector();
+        }
+
+        if (_isAttached)
+        {
+            _cubeTransform.position = _initialPosition;
+            _cubeTransform.rotation = _initialRotation;
+        }
+    }
 
     public void AttachToConnector()
     {
         if (stomaConnector != null)
         {
-            
+            transform.position = stomaConnector.position + new Vector3(0, 0, 0.11f);
             transform.parent = stomaConnector;
-            rb.isKinematic = true; 
-            isAttached = true;
+            _rb.isKinematic = true;
+            _isAttached = true;
         }
     }
 
     public void DetachFromConnector()
     {
-        if (isAttached)
+        if (_isAttached)
         {
-            
             transform.parent = null;
-            rb.isKinematic = false; 
-            isAttached = false;
+            _rb.isKinematic = false;
+            _isAttached = false;
         }
     }
 
     private bool IsPouring()
     {
-
-        float dotProduct = Vector3.Dot(cubeTransform.TransformDirection(pourFaceNormal), Vector3.down);
+        float dotProduct = Vector3.Dot(_cubeTransform.TransformDirection(_pourFaceNormal), Vector3.down);
         return dotProduct > pourThreshold;
     }
 
     private float CalculateTiltAmount()
     {
-        float dotProduct = Vector3.Dot(cubeTransform.TransformDirection(pourFaceNormal), Vector3.down);
-        return Mathf.InverseLerp(pourThreshold, 1f, dotProduct); 
+        float dotProduct = Vector3.Dot(_cubeTransform.TransformDirection(_pourFaceNormal), Vector3.down);
+        return Mathf.InverseLerp(pourThreshold, 1f, dotProduct);
     }
 }
