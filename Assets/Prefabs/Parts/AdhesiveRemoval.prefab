@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3370965199086390188}
   - component: {fileID: 7535531843153581500}
+  - component: {fileID: 4564526965228555011}
   m_Layer: 3
   m_Name: AdhesiveRemoval
   m_TagString: Untagged
@@ -50,6 +51,24 @@ MonoBehaviour:
   m_TrackedTransform: {fileID: 4615726654562198330}
   m_MaxPullSpeed: 2
   m_RequiredPullDistance: 1
+--- !u!114 &4564526965228555011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049866432037219174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb79a2404427124c8d23938c6d9e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 1
+  m_StepComponents: []
+  m_StepGameObjects:
+  - GameObject: {fileID: 2284039913228964381}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 0
 --- !u!1 &2141976493578606560
 GameObject:
   m_ObjectHideFlags: 0

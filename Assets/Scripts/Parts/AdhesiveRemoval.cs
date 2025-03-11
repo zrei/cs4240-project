@@ -60,7 +60,7 @@ public class AdhesiveRemoval : MonoBehaviour
 
             if (speed > m_MaxPullSpeed)
             {                
-                Debug.Log("Exceeded");
+                Logger.Log(typeof(AdhesiveRemoval), "Exceeded speed", LogLevel.LOG);
                 // play sound or something
             }
 
@@ -69,7 +69,8 @@ public class AdhesiveRemoval : MonoBehaviour
                 m_HasBeenRemoved = true;
                 m_Rigidbody.useGravity = true;
                 transform.parent = null;
-                Debug.Log("Removed!");
+                Logger.Log(typeof(AdhesiveRemoval), "Removed adhesive", LogLevel.LOG);
+                GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
                 // handle
             }
         }

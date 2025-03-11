@@ -1,29 +1,103 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public abstract class SingleStepHandler : MonoBehaviour
+public class SingleStepHandler : MonoBehaviour
 {
-    [SerializeField] private Steps m_Step;
+    [System.Serializable]
+    private struct StepComponent
+    {
+        public MonoBehaviour Component;
+        public bool DisabledBeforeStep;
+        public bool DisabledAfterStep;
+    }
 
-    protected bool m_IsActive = false;
+    [System.Serializable]
+    private struct StepGameObject
+    {
+        public GameObject GameObject;
+        public bool DisabledBeforeStep;
+        public bool DisabledAfterStep;
+    }
+
+    [SerializeField] private Steps m_Step;
+    [SerializeField] private List<StepComponent> m_StepComponents;
+    [SerializeField] private List<StepGameObject> m_StepGameObjects;
+
+    public Steps Step => m_Step;
+    private bool m_IsActive = false;
 
     private void Awake()
     {
-        GlobalEvents.StepsEvents.OnGoToStep += OnGoToStep;
+        GlobalEvents.StepsEvents.OnBeginStep += OnBeginStep;
+        GlobalEvents.StepsEvents.OnCompleteStep += OnCompleteStep;
+        ToggleBeforeStep(false);
     }
 
     private void OnDestroy()
     {
-        GlobalEvents.StepsEvents.OnGoToStep -= OnGoToStep;
+        GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
+        GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
     }
 
-    private void OnGoToStep(Steps step)
+    private void OnBeginStep(StepSO stepSO)
     {
-        m_IsActive = step == m_Step;
+        m_IsActive = stepSO.m_Step == m_Step;
+        
+        if (m_IsActive)
+        {
+            Logger.Log(typeof(SingleStepHandler), this.gameObject, "Begin step " + m_Step, LogLevel.LOG);
+            ToggleBeforeStep(true);
+        }
     }
 
-    protected void OnCompleteStep()
+    private void OnCompleteStep()
     {
+        Logger.Log(typeof(SingleStepHandler), this.gameObject, "Complete step " + m_Step, LogLevel.LOG);
         m_IsActive = false;
-        GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
+        ToggleAfterStep();
+    }
+
+    private void ToggleBeforeStep(bool enable)
+    {
+        ToggleComponentsBeforeStep(enable);
+        ToggleGameObjectsBeforeStep(enable);
+    }
+
+    private void ToggleAfterStep()
+    {
+        ToggleComponentsAfterStep();
+        ToggleGameObjectsAfterStep();
+    }
+
+    private void ToggleComponentsBeforeStep(bool enable)
+    {
+        foreach (StepComponent stepComponent in m_StepComponents)
+        {
+            stepComponent.Component.enabled = enable || !stepComponent.DisabledBeforeStep;
+        }
+    }
+
+    private void ToggleComponentsAfterStep()
+    {
+        foreach (StepComponent stepComponent in m_StepComponents)
+        {
+            stepComponent.Component.enabled = !stepComponent.DisabledAfterStep;
+        }
+    }
+
+    private void ToggleGameObjectsBeforeStep(bool enable)
+    {
+        foreach (StepGameObject stepGameObject in m_StepGameObjects)
+        {
+            stepGameObject.GameObject.SetActive(enable || !stepGameObject.DisabledBeforeStep);
+        }
+    }
+
+    private void ToggleGameObjectsAfterStep()
+    {
+        foreach (StepGameObject stepGameObject in m_StepGameObjects)
+        {
+            stepGameObject.GameObject.SetActive(!stepGameObject.DisabledAfterStep);
+        }
     }
 }

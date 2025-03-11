@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public delegate void IntEvent(int _);
@@ -11,9 +9,9 @@ public static class GlobalEvents {
   
     public static class StepsEvents
     {
-        public delegate void StepEvent(Steps _);
+        public delegate void StepSOEvent(StepSO _);
         
         public static VoidEvent OnCompleteStep;
-        public static StepEvent OnGoToStep;
+        public static StepSOEvent OnBeginStep;
     }
 }
