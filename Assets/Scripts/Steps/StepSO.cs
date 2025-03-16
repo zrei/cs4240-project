@@ -3,7 +3,12 @@ using UnityEngine;
 public enum Steps
 {
     REMOVE_BAG,
-    REMOVE_ADHESIVE
+    DISPOSE_BAG,
+    REMOVE_ADHESIVE,
+    DISPOSE_ADHESIVE,
+    CLEAN_DIRTY_SKIN,
+    ATTACH_ADHESIVE,
+    ATTACH_CLEAN_BAG
 }
 
 // can also add substeps if needed

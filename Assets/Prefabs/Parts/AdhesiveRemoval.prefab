@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3370965199086390188}
   - component: {fileID: 7535531843153581500}
   - component: {fileID: 4564526965228555011}
+  - component: {fileID: 8346827642150874511}
   m_Layer: 3
   m_Name: AdhesiveRemoval
   m_TagString: Untagged
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 7307053003594710285}
   m_TrackedTransform: {fileID: 4615726654562198330}
   m_MaxPullSpeed: 2
-  m_RequiredPullDistance: 1
+  m_RequiredPullDistance: 0.05
 --- !u!114 &4564526965228555011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,12 +64,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb79a2404427124c8d23938c6d9e419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Step: 1
+  m_Step: 2
   m_StepComponents: []
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
     DisabledBeforeStep: 1
     DisabledAfterStep: 0
+--- !u!114 &8346827642150874511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049866432037219174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb79a2404427124c8d23938c6d9e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 3
+  m_StepComponents: []
+  m_StepGameObjects:
+  - GameObject: {fileID: 2284039913228964381}
+    DisabledBeforeStep: 0
+    DisabledAfterStep: 1
 --- !u!1 &2141976493578606560
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +100,7 @@ GameObject:
   - component: {fileID: 4229893440666307405}
   - component: {fileID: 5962902889798088516}
   - component: {fileID: 7307053003594710285}
-  - component: {fileID: 6718566889307580284}
+  - component: {fileID: 3547195219319075891}
   m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
@@ -98,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 2141976493578606560}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0078, y: -0, z: -0.017}
   m_LocalScale: {x: 0.08, y: 0.001, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -185,8 +204,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &6718566889307580284
-CapsuleCollider:
+--- !u!65 &3547195219319075891
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -203,11 +222,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.50000024
-  m_Height: 2.0000005
-  m_Direction: 1
-  m_Center: {x: -0.000001847744, y: 0, z: -0.00000008940699}
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2.0000076, z: 1.0000008}
+  m_Center: {x: 0.00000005960464, y: 4.1215718e-13, z: -0.000000089407024}
 --- !u!1 &2284039913228964381
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +238,7 @@ GameObject:
   - component: {fileID: 1188817398625917170}
   - component: {fileID: 6632435306350329267}
   - component: {fileID: 3634395882530768955}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ISDK_HandGrabInteraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}

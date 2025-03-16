@@ -29,7 +29,6 @@ public class SingleStepHandler : MonoBehaviour
     private void Awake()
     {
         GlobalEvents.StepsEvents.OnBeginStep += OnBeginStep;
-        GlobalEvents.StepsEvents.OnCompleteStep += OnCompleteStep;
         ToggleBeforeStep(false);
     }
 
@@ -45,13 +44,16 @@ public class SingleStepHandler : MonoBehaviour
         
         if (m_IsActive)
         {
+            GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
             Logger.Log(typeof(SingleStepHandler), this.gameObject, "Begin step " + m_Step, LogLevel.LOG);
             ToggleBeforeStep(true);
+            GlobalEvents.StepsEvents.OnCompleteStep += OnCompleteStep;
         }
     }
 
     private void OnCompleteStep()
     {
+        GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
         Logger.Log(typeof(SingleStepHandler), this.gameObject, "Complete step " + m_Step, LogLevel.LOG);
         m_IsActive = false;
         ToggleAfterStep();
@@ -97,6 +99,7 @@ public class SingleStepHandler : MonoBehaviour
     {
         foreach (StepGameObject stepGameObject in m_StepGameObjects)
         {
+            Debug.Log(!stepGameObject.DisabledAfterStep);
             stepGameObject.GameObject.SetActive(!stepGameObject.DisabledAfterStep);
         }
     }

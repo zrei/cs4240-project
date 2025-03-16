@@ -52,14 +52,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Step
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_StepGameObjects.Array.data[0].DisabledBeforeStep
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7535531843153581500, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+    - {fileID: 4564526965228555011, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5507702835672099102}
+    - targetCorrespondingSourceObject: {fileID: 2141976493578606560, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4079190029509783504}
+    - targetCorrespondingSourceObject: {fileID: 2141976493578606560, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4515051332452944137}
   m_SourcePrefab: {fileID: 100100000, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
 --- !u!1 &6197892008201526430 stripped
 GameObject:
@@ -80,3 +95,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CircularFill: {fileID: 0}
   m_ColliderParent: {fileID: 0}
+  m_AttachmentColliderMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_AttachPoint: {fileID: 0}
+  m_Rigidbody: {fileID: 0}
+--- !u!1 &6325331089552023576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2141976493578606560, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+  m_PrefabInstance: {fileID: 5364283419662940152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4079190029509783504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325331089552023576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930f4f37a2cd7514bbb840c255373c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NumberSegments: 10
+  m_Radius: 0
+  m_InteractionLayerName: 
+  m_MeshTransform: {fileID: 0}
+  m_ColliderParent: {fileID: 0}
+  m_Height: 0.01
+  m_InteractionMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &4515051332452944137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325331089552023576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d98bca656cff504f8b660cc02333829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RequiredFillPercentage: 0
+  m_AllowMultiInvoke: 0

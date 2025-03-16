@@ -68,11 +68,22 @@ public class StomaBag : MonoBehaviour
             liquidParticles.Stop();
         }
 
-       
+        Debug.Log(_isAttached && _isBeingGrabbed);
+        if (_isAttached && _isBeingGrabbed)
+        {
+            float distanceMoved = Vector3.Distance(_cubeTransform.position, _initialPosition);
+            Debug.Log(distanceMoved);
+            if (distanceMoved > 0.05f)
+            {
+                GlobalEvents.StepsEvents.OnCompleteStep();
+                _isAttached = false;
+            }
+        }
     }
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
+        Debug.Log("???");
         _initialPosition = _cubeTransform.position;
         _initialRotation = _cubeTransform.rotation;
         _isBeingGrabbed = true;
@@ -84,17 +95,14 @@ public class StomaBag : MonoBehaviour
     private void OnReleased(SelectExitEventArgs args)
     {
         _isBeingGrabbed = false;
-        float distanceMoved = Vector3.Distance(_cubeTransform.position, _initialPosition);
-        if (distanceMoved > 0.05f)
-        {
-            DetachFromConnector();
-        }
 
         if (_isAttached)
         {
             _cubeTransform.position = _initialPosition;
             _cubeTransform.rotation = _initialRotation;
         }
+        else
+            DetachFromConnector();
     }
 
     public void AttachToConnector()

@@ -11,8 +11,9 @@ public class AdhesiveRemoval : MonoBehaviour
     [SerializeField] private float m_MaxPullSpeed;
     [SerializeField] private float m_RequiredPullDistance;
 
-    private Vector3 m_InitialPosition;
-    private Quaternion m_InitialRotation;
+    private Vector3 m_InitialLocalPosition;
+    private Quaternion m_InitialLocalRotation;
+    private Vector3 m_InitialWorldPosition;
     private Vector3 m_PreviousPosition;
     private bool m_IsBeingPulled = false;
     private bool m_HasBeenRemoved = false;
@@ -22,6 +23,9 @@ public class AdhesiveRemoval : MonoBehaviour
 
         m_GrabNotifier.onObjectGrabbed += OnPinched;
         m_GrabNotifier.onObjectReleased += OnPinchStop;
+
+        m_InitialLocalPosition = m_TrackedTransform.localPosition;
+        m_InitialLocalRotation = m_TrackedTransform.localRotation;
     }
 
     private void OnDestroy()
@@ -32,8 +36,8 @@ public class AdhesiveRemoval : MonoBehaviour
 
     private void OnPinched(GameObject _)
     {
-        m_InitialPosition = m_TrackedTransform.position;
-        m_InitialRotation = m_TrackedTransform.rotation;
+        Debug.Log("Pulled");
+        m_InitialWorldPosition = m_TrackedTransform.position;
         m_IsBeingPulled = true;
     }
 
@@ -43,8 +47,8 @@ public class AdhesiveRemoval : MonoBehaviour
 
         if (!m_HasBeenRemoved)
         {
-            m_TrackedTransform.position = m_InitialPosition;
-            m_TrackedTransform.rotation = m_InitialRotation;
+            m_TrackedTransform.localPosition = m_InitialLocalPosition;
+            m_TrackedTransform.localRotation = m_InitialLocalRotation;
         }
     }
 
@@ -55,7 +59,7 @@ public class AdhesiveRemoval : MonoBehaviour
 
         if (m_IsBeingPulled)
         {
-            float distanceMovedSoFarSquared = (m_TrackedTransform.position - m_InitialPosition).sqrMagnitude;
+            float distanceMovedSoFarSquared = (m_TrackedTransform.position - m_InitialWorldPosition).sqrMagnitude;
             float speed = (m_TrackedTransform.position - m_PreviousPosition).magnitude / Time.deltaTime;
 
             if (speed > m_MaxPullSpeed)
@@ -68,10 +72,9 @@ public class AdhesiveRemoval : MonoBehaviour
             {
                 m_HasBeenRemoved = true;
                 m_Rigidbody.useGravity = true;
-                transform.parent = null;
+                m_TrackedTransform.parent = null;
                 Logger.Log(typeof(AdhesiveRemoval), "Removed adhesive", LogLevel.LOG);
                 GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
-                // handle
             }
         }
 

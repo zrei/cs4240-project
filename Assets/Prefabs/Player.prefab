@@ -1825,18 +1825,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AdhesiveRemoval
       objectReference: {fileID: 0}
-    - target: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2141976493578606560, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2284039913228964381, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 3370965199086390188, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalScale.x
       value: 20
