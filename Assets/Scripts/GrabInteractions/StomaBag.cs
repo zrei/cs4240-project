@@ -68,11 +68,9 @@ public class StomaBag : MonoBehaviour
             liquidParticles.Stop();
         }
 
-        Debug.Log(_isAttached && _isBeingGrabbed);
         if (_isAttached && _isBeingGrabbed)
         {
             float distanceMoved = Vector3.Distance(_cubeTransform.position, _initialPosition);
-            Debug.Log(distanceMoved);
             if (distanceMoved > 0.05f)
             {
                 GlobalEvents.StepsEvents.OnCompleteStep();
@@ -83,7 +81,6 @@ public class StomaBag : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
-        Debug.Log("???");
         _initialPosition = _cubeTransform.position;
         _initialRotation = _cubeTransform.rotation;
         _isBeingGrabbed = true;
