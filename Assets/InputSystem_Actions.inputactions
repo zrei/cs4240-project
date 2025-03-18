@@ -563,7 +563,7 @@
                     "id": "70c50f7c-d3fa-438b-a82a-efd671ef71e0",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -728,7 +728,7 @@
                     "id": "9de3543a-c482-4c39-9b3f-aed9974776b0",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {

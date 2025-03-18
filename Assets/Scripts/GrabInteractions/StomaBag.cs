@@ -1,5 +1,7 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.Events;
+using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody), typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
 public class StomaBag : MonoBehaviour
@@ -14,8 +16,9 @@ public class StomaBag : MonoBehaviour
     [SerializeField] private float pourThreshold = 0.7f;
     [SerializeField] private float maxEmissionRate = 50f;
 
+
     private Rigidbody _rb;
-    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable _grabInteractable;
+    private XRInteraction.Interactables.XRGrabInteractable _grabInteractable;
     private Transform _cubeTransform;
     private Vector3 _pourFaceNormal = Vector3.forward;
     private bool _isAttached = true;
@@ -24,22 +27,17 @@ public class StomaBag : MonoBehaviour
     private Quaternion _initialRotation;
     private bool _isBeingGrabbed = false;
 
+    private FixedJoint _joint;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
         _cubeTransform = transform;
-
-        ConfigureGrabInteractable();
+        
         InitializeParticles();
         AttachToConnector();
     }
 
-    private void ConfigureGrabInteractable()
-    {
-        _grabInteractable.selectEntered.AddListener(OnGrabbed);
-        _grabInteractable.selectExited.AddListener(OnReleased);
-    }
 
     private void InitializeParticles()
     {
@@ -68,59 +66,98 @@ public class StomaBag : MonoBehaviour
             liquidParticles.Stop();
         }
 
-        if (_isAttached && _isBeingGrabbed)
+        if (_isBeingGrabbed && _isAttached)
         {
-            float distanceMoved = Vector3.Distance(_cubeTransform.position, _initialPosition);
-            if (distanceMoved > 0.05f)
+            float distanceMoved = Vector3.Distance(_cubeTransform.position, stomaConnector.position);
+            Debug.Log("Distance moved: " + distanceMoved);
+            
+            if (distanceMoved > 0.3f)
             {
+                DetachFromConnector();
                 GlobalEvents.StepsEvents.OnCompleteStep();
-                _isAttached = false;
             }
         }
     }
-
-    private void OnGrabbed(SelectEnterEventArgs args)
+    public void OnGrabbed()
     {
-        _initialPosition = _cubeTransform.position;
-        _initialRotation = _cubeTransform.rotation;
+        Debug.Log("Stoma bag grabbed");
         _isBeingGrabbed = true;
-        _rb.isKinematic = false;
-
- 
+        
     }
 
-    private void OnReleased(SelectExitEventArgs args)
+    public void OnReleased()
     {
+        Debug.Log("Stoma bag released");
         _isBeingGrabbed = false;
+        
 
-        if (_isAttached)
-        {
-            _cubeTransform.position = _initialPosition;
-            _cubeTransform.rotation = _initialRotation;
-        }
-        else
-            DetachFromConnector();
     }
 
     public void AttachToConnector()
     {
         if (stomaConnector != null)
         {
-            transform.position = stomaConnector.position + new Vector3(0, 0, 0.11f);
-            transform.parent = stomaConnector;
-            _rb.isKinematic = true;
+            transform.position = stomaConnector.position + new Vector3(0, 0, 0.1f);
+            
+            if (_joint != null)
+            {
+                Destroy(_joint);
+            }
+            
+            Rigidbody connectorRb = stomaConnector.GetComponent<Rigidbody>();
+            if (connectorRb == null)
+            {
+                connectorRb = stomaConnector.gameObject.AddComponent<Rigidbody>();
+                connectorRb.isKinematic = true;
+                connectorRb.interpolation = RigidbodyInterpolation.Interpolate;
+            }
+            
+            _joint = gameObject.AddComponent<FixedJoint>();
+            _joint.connectedBody = connectorRb;
+            _joint.breakForce = 2000f;
+            _joint.enableCollision = false;
+            
+            _rb.isKinematic = false;
+            _rb.useGravity = false;
+            _rb.mass = 1f;
+            _rb.interpolation = RigidbodyInterpolation.Interpolate;
+            
+            _rb.constraints = RigidbodyConstraints.FreezeRotation;
+            
+            StartCoroutine(RemoveConstraintsAfterDelay(0.5f));
+            
             _isAttached = true;
+            
+            Debug.Log("Stoma bag firmly attached to connector");
+        }
+    }
+
+    private IEnumerator RemoveConstraintsAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (_isAttached)
+        {
+            _rb.constraints = RigidbodyConstraints.None;
         }
     }
 
     public void DetachFromConnector()
     {
-        if (_isAttached)
+        Debug.Log("Detach Called");
+        if (_joint != null)
         {
-            transform.parent = null;
-            _rb.isKinematic = false;
-            _isAttached = false;
+            Destroy(_joint);
         }
+        
+        _rb.isKinematic = false;
+        _rb.useGravity = true;
+        
+        _rb.linearDamping = 0.05f;        
+        _rb.angularDamping = 0.05f;  
+        
+        _rb.constraints = RigidbodyConstraints.None;
+        
+        _isAttached = false;
     }
 
     private bool IsPouring()
