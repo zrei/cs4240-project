@@ -6288,7 +6288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UseMinimumHeight: 1
   m_CalculateHeightRelativeToOriginalPosition: 1
-  m_MinimumHeight: -20
+  m_MinimumHeight: -1
   m_UseTrigger: 0
   m_AllowedLayers:
     serializedVersion: 2
