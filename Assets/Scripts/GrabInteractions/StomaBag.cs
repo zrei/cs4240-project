@@ -97,7 +97,7 @@ public class StomaBag : MonoBehaviour
     {
         if (stomaConnector != null)
         {
-            transform.position = stomaConnector.position + new Vector3(0, 0, 0.1f);
+            transform.position = stomaConnector.position;
             
             if (_joint != null)
             {
@@ -124,7 +124,7 @@ public class StomaBag : MonoBehaviour
             
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
             
-            StartCoroutine(RemoveConstraintsAfterDelay(0.5f));
+            StartCoroutine(RemoveConstraintsAfterDelay(0.7f));
             
             _isAttached = true;
             
