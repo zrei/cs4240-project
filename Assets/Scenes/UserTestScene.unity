@@ -153,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalRotation.y
@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -6307,6 +6307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AttachPoint: {fileID: 2053049549}
   m_Rigidbody: {fileID: 1564434375}
+  m_Collider: {fileID: 1564434376}
   m_OneHandFreeGrabWithEvents: {fileID: 1102462984}
   m_ReturnToPosition: {fileID: 1564434380}
   m_CollisionInteraction: {fileID: 2053049551}

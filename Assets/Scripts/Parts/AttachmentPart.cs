@@ -11,11 +11,11 @@ public class AttachmentPart : MonoBehaviour
 {
     [SerializeField] private Transform m_AttachPoint;
     [SerializeField] private Rigidbody m_Rigidbody;
+    [SerializeField] private Collider m_Collider;
     [SerializeField] private OneHandFreeGrabWithEvents m_OneHandFreeGrabWithEvents;
     [SerializeField] private ReturnToPosition m_ReturnToPosition;
     [SerializeField] private CollisionInteraction m_CollisionInteraction;
 
-    
     private void Start()
     {
         m_Rigidbody.useGravity = false;
@@ -58,5 +58,6 @@ public class AttachmentPart : MonoBehaviour
         transform.localRotation = Quaternion.identity;
         // turn off gravity
         m_Rigidbody.useGravity = false;
+        m_Collider.enabled = false;
     }
 }
