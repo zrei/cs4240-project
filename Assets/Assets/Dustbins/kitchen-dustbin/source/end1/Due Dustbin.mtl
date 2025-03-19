@@ -1,0 +1,31 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 13.10.2017 14:57:29
+
+newmtl Mat
+	Ns 10.000000
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588000 0.588000 0.588000
+	Kd 0.588000 0.588000 0.588000
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+
+newmtl Null_Tube_11
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588235 0.588235 0.588235
+	Kd 0.588235 0.588235 0.588235
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka E:\Cad\Dustbin Cucina Steel\max1\NullTube\flats\Null_Tube_11_albedo.png
+	map_Kd E:\Cad\Dustbin Cucina Steel\max1\NullTube\flats\Null_Tube_11_albedo.png
+	map_Ks E:\Cad\Dustbin Cucina Steel\max1\NullTube\flats\Null_Tube_11_specular.png
+	map_bump E:\Cad\Dustbin Cucina Steel\max1\NullTube\flats\Null_Tube_11_normal.png
+	bump E:\Cad\Dustbin Cucina Steel\max1\NullTube\flats\Null_Tube_11_normal.png
