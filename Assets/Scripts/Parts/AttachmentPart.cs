@@ -3,13 +3,7 @@ using UnityEngine.Events;
 using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
 
-/// <summary>
-/// Interaction summary:
-/// Begins with gravity turned off to ensure the object is accessible
-/// Gravity is turned on once the object is grabbed
-/// Gravity is turned off when the object is successfully attached
-/// Gravity is turned off when object is repositioned due to falling too much
-/// </summary>
+
 [RequireComponent(typeof(Rigidbody), typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
 public class AttachmentPart : MonoBehaviour
 {
@@ -39,27 +33,26 @@ public class AttachmentPart : MonoBehaviour
 
     private void Update()
     {
-        // Only check for attachment when being grabbed and not already attached
+
         if (_isBeingGrabbed && !_isAttached)
         {
             float distanceToAttach = Vector3.Distance(_objectTransform.position, attachmentPoint.position);
             
-            // If close enough to attachment point, attach
+            // If close enough attach
             if (distanceToAttach < attachDistance)
             {
                 AttachToPoint();
                 Debug.Log("Object attached to attachment point!");
-                GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
             }
         }
     }
 
     public void OnGrabbed()
     {
-        Debug.Log("Object grabbed");
+        Debug.Log($"{gameObject.name} grabbed");
         _isBeingGrabbed = true;
         
-        // If already attached, detach when grabbed
+
         if (_isAttached)
         {
             DetachFromPoint();
@@ -79,7 +72,6 @@ public class AttachmentPart : MonoBehaviour
 
         transform.localPosition = Vector3.zero;
         transform.localRotation = Quaternion.identity;
-        // turn off gravity
         //m_Rigidbody.useGravity = false;
     }
 
@@ -87,10 +79,8 @@ public class AttachmentPart : MonoBehaviour
     {
         if (attachmentPoint != null)
         {
-            // Set position to attachment point
             transform.position = attachmentPoint.position;
             
-            // Clean up any existing joint
             if (_joint != null)
             {
                 Destroy(_joint);
@@ -113,10 +103,9 @@ public class AttachmentPart : MonoBehaviour
             _rb.useGravity = false;
             _rb.interpolation = RigidbodyInterpolation.Interpolate;
             
-            // Mark as attached
             _isAttached = true;
             
-            Debug.Log("Object firmly attached to point");
+            Debug.Log($"{gameObject.name} firmly attached to point");
         }
     }
 

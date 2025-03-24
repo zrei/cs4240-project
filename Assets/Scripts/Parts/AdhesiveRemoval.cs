@@ -1,83 +1,72 @@
 using UnityEngine;
+using UnityEngine.Events;
+using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
-public class AdhesiveRemoval : MonoBehaviour
+[RequireComponent(typeof(Rigidbody), typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
+public class AttachableObject : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private OneHandFreeGrabWithEvents m_GrabNotifier;
-    [SerializeField] private Rigidbody m_Rigidbody;
-    [SerializeField] private Transform m_TrackedTransform;
+    [Header("Attachment")]
+    [SerializeField] private Transform attachmentPoint;
+    [SerializeField] private float attachDistance = 0.1f;
 
-    [Header("Settings")]
-    [SerializeField] private float m_MaxPullSpeed;
-    [SerializeField] private float m_RequiredPullDistance;
+    private Rigidbody _rb;
+    private XRInteraction.Interactables.XRGrabInteractable _grabInteractable;
+    private Transform _objectTransform;
+    private bool _isAttached = true;
+    private bool _isBeingGrabbed = false;
 
-    private Vector3 m_InitialLocalPosition;
-    private Quaternion m_InitialLocalRotation;
-    private Vector3 m_InitialWorldPosition;
-    private Vector3 m_PreviousPosition;
-    private bool m_IsBeingPulled = false;
-    private bool m_HasBeenRemoved = false;
-    private void Start()
+
+    private void Awake()
     {
-        m_Rigidbody.useGravity = false;
-
-        m_GrabNotifier.onObjectGrabbed += OnPinched;
-        m_GrabNotifier.onObjectReleased += OnPinchStop;
-
-        m_InitialLocalPosition = m_TrackedTransform.localPosition;
-        m_InitialLocalRotation = m_TrackedTransform.localRotation;
-    }
-
-    private void OnDestroy()
-    {
-        m_GrabNotifier.onObjectGrabbed -= OnPinched;
-        m_GrabNotifier.onObjectReleased -= OnPinchStop;
-    }
-
-    private void OnPinched(GameObject _)
-    {
-        Debug.Log("Pulled");
-        m_InitialWorldPosition = m_TrackedTransform.position;
-        m_IsBeingPulled = true;
-    }
-
-    private void OnPinchStop(GameObject _)
-    {
-        m_IsBeingPulled = false;
-
-        if (!m_HasBeenRemoved)
-        {
-            m_TrackedTransform.localPosition = m_InitialLocalPosition;
-            m_TrackedTransform.localRotation = m_InitialLocalRotation;
-        }
+        _rb = GetComponent<Rigidbody>();
+        _objectTransform = transform;
+        _grabInteractable = GetComponent<XRInteraction.Interactables.XRGrabInteractable>();
+        
+        _rb.isKinematic = true;
     }
 
     private void Update()
     {
-        if (m_HasBeenRemoved)
-            return;
-
-        if (m_IsBeingPulled)
+        if (_isBeingGrabbed && _isAttached)
         {
-            float distanceMovedSoFarSquared = (m_TrackedTransform.position - m_InitialWorldPosition).sqrMagnitude;
-            float speed = (m_TrackedTransform.position - m_PreviousPosition).magnitude / Time.deltaTime;
-
-            if (speed > m_MaxPullSpeed)
-            {                
-                Logger.Log(typeof(AdhesiveRemoval), "Exceeded speed", LogLevel.LOG);
-                // play sound or something
-            }
-
-            if (distanceMovedSoFarSquared > m_RequiredPullDistance * m_RequiredPullDistance)
+            float distanceToAttach = Vector3.Distance(_objectTransform.position, attachmentPoint.position);
+            Debug.Log("Distance to attachment point: " + distanceToAttach);
+            
+            if (distanceToAttach > attachDistance)
             {
-                m_HasBeenRemoved = true;
-                m_Rigidbody.useGravity = true;
-                m_TrackedTransform.parent = null;
-                Logger.Log(typeof(AdhesiveRemoval), "Removed adhesive", LogLevel.LOG);
-                GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
+                DetachFromPoint();
+                Debug.Log("OnCompleteStep event fired");
             }
         }
+    }
 
-        m_PreviousPosition = m_TrackedTransform.position;
+    public void OnGrabbed()
+    {
+        _isBeingGrabbed = true;
+        
+    }
+
+    public void OnReleased()
+    {
+        _isBeingGrabbed = false;
+    }
+
+
+    public void DetachFromPoint()
+    {
+        Debug.Log("Detach Called on adhesive removal");
+
+        transform.SetParent(null);
+        
+        _rb.isKinematic = false;
+        _rb.useGravity = true;
+        
+        _rb.linearDamping = 0.05f;
+        _rb.angularDamping = 0.05f;
+        
+        _rb.constraints = RigidbodyConstraints.None;
+        
+        _isAttached = false;
     }
 }
