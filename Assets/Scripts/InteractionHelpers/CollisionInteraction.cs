@@ -17,10 +17,10 @@ public class CollisionInteraction : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Logger.Log(typeof(CollisionInteraction), this.gameObject, "Trigger enter", LogLevel.LOG);
+        //Logger.Log(typeof(CollisionInteraction), this.gameObject, "Trigger enter", LogLevel.LOG);
         if (((1 << other.gameObject.layer) & m_AllowedLayers) != 0)
         {
-            Logger.Log(typeof(CollisionInteraction), this.gameObject, other.gameObject.name + ", position: " + other.gameObject.transform.position, LogLevel.LOG);
+            //Logger.Log(typeof(CollisionInteraction), this.gameObject, other.gameObject.name + ", position: " + other.gameObject.transform.position, LogLevel.LOG);
             OnCollisionInteraction?.Invoke();
             GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
         }

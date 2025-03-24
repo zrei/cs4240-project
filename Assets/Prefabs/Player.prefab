@@ -1886,12 +1886,32 @@ PrefabInstance:
       propertyPath: _activeState
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 420998178409109440, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _hmd
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1756131777121390994, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       propertyPath: '_gameObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1837905692119329833, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _hmd
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014605598161966442, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2237141470378414320, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       propertyPath: _iModifyDataFromSourceMono
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243273640916498003, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _openXRSkinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2243273640916498003, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _openXRHandMaterialPropertyBlockEditor
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2514675399181695721, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
@@ -1942,6 +1962,10 @@ PrefabInstance:
       propertyPath: m_CameraYOffset
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 2776476006223621932, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _hmd
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3344037526917208634, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1949,6 +1973,14 @@ PrefabInstance:
     - target: {fileID: 3642352042163518208, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       propertyPath: m_Name
       value: UnityXRCameraRigInteraction
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643098295348325199, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4124207719847560055, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _hmd
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4329055501300853419, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       propertyPath: m_Enabled
@@ -1966,11 +1998,27 @@ PrefabInstance:
       propertyPath: _iModifyDataFromSourceMono
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8469599407411291355, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _openXRSkinnedMeshRenderer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469599407411291355, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _openXRHandMaterialPropertyBlockEditor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9203715625515713354, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+      propertyPath: _hmd
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5353716685745937110, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
     - {fileID: 191076019672581997, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
     - {fileID: 4504215833392165025, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+    - {fileID: 8069177183482699933, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+    - {fileID: 1951459175873991988, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+    - {fileID: 5880100862392652688, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
+    - {fileID: 7131023392633979852, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2686694955732496592, guid: ce61dc20b15eeff4e9712e79d49d16ad, type: 3}
       insertIndex: -1

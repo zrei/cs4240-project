@@ -69,12 +69,12 @@ public class StomaBag : MonoBehaviour
         if (_isBeingGrabbed && _isAttached)
         {
             float distanceMoved = Vector3.Distance(_cubeTransform.position, stomaConnector.position);
-            Debug.Log("Distance moved: " + distanceMoved);
             
             if (distanceMoved > 0.3f)
             {
                 DetachFromConnector();
-                GlobalEvents.StepsEvents.OnCompleteStep();
+                Debug.Log("OnCompleteStep event fired");
+                GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
             }
         }
     }
@@ -98,6 +98,7 @@ public class StomaBag : MonoBehaviour
         if (stomaConnector != null)
         {
             transform.position = stomaConnector.position;
+            transform.Translate(Vector3.down * 0.1f, Space.Self); 
             
             if (_joint != null)
             {
@@ -114,7 +115,7 @@ public class StomaBag : MonoBehaviour
             
             _joint = gameObject.AddComponent<FixedJoint>();
             _joint.connectedBody = connectorRb;
-            _joint.breakForce = 2000f;
+            _joint.breakForce = 4000f;
             _joint.enableCollision = false;
             
             _rb.isKinematic = false;
@@ -128,7 +129,6 @@ public class StomaBag : MonoBehaviour
             
             _isAttached = true;
             
-            Debug.Log("Stoma bag firmly attached to connector");
         }
     }
 
