@@ -1,4 +1,5 @@
 using UnityEngine;
+using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
 
 public class ReturnToPosition : MonoBehaviour
 {
@@ -13,21 +14,61 @@ public class ReturnToPosition : MonoBehaviour
     [SerializeField] private LayerMask m_AllowedLayers;
 
     private Vector3 m_InitialWorldPosition;
+    private Quaternion m_InitialRotation;
 
     public VoidEvent OnReposition;
+
+    private Rigidbody m_Rigidbody;
+    private XRInteraction.Interactables.XRGrabInteractable _grabInteractable;
+    private bool m_IsBeingGrabbed = false;
+
+    private void Start()
+    {
+        m_Rigidbody = GetComponent<Rigidbody>();
+        _grabInteractable = GetComponent<XRInteraction.Interactables.XRGrabInteractable>();
+    }
 
     private void OnEnable()
     {
         m_InitialWorldPosition = transform.position;    
+        m_InitialRotation = transform.rotation;
+
+        if (_grabInteractable)
+        {
+            _grabInteractable.selectEntered.AddListener(OnGrabbed);
+            _grabInteractable.selectExited.AddListener(OnReleased);
+        }
+        
+    }
+
+    private void OnDisable()
+    {
+        if (_grabInteractable)
+        {
+            _grabInteractable.selectEntered.RemoveAllListeners();
+            _grabInteractable.selectExited.RemoveAllListeners();
+        }
+
+        m_IsBeingGrabbed = false;
     }
 
     private void Update()
     {
-        if (m_UseMinimumHeight)
+        if (!m_IsBeingGrabbed && m_UseMinimumHeight)
         {
             if (CalculateHeight() < m_MinimumHeight)
                 Reposition();
         }
+    }
+
+    private void OnGrabbed(XRInteraction.SelectEnterEventArgs _)
+    {
+        m_IsBeingGrabbed = true;
+    }
+
+    private void OnReleased(XRInteraction.SelectExitEventArgs _)
+    {
+        m_IsBeingGrabbed = false;
     }
 
     private float CalculateHeight()
@@ -37,7 +78,7 @@ public class ReturnToPosition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (((1 << other.gameObject.layer) & m_AllowedLayers) != 0)
+        if (!m_IsBeingGrabbed && ((1 << other.gameObject.layer) & m_AllowedLayers) != 0)
         {
             Reposition();
         }
@@ -46,6 +87,13 @@ public class ReturnToPosition : MonoBehaviour
     private void Reposition()
     {
         transform.position = m_InitialWorldPosition;
+        transform.rotation = m_InitialRotation;
+        if (m_Rigidbody)
+        {
+            m_Rigidbody.useGravity = false;
+            m_Rigidbody.isKinematic = true;
+        }
+            
         OnReposition?.Invoke();
     }
 }
