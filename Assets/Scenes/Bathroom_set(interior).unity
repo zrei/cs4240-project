@@ -1247,6 +1247,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5105205338941921190, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: '_activeStates.Array.data[2]'
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5105205338941921190, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: '_activeStates.Array.data[3]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5687256129486302619, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1292,6 +1300,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8076598499826378049, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_Handedness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076598499826378049, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 782583449}
@@ -1311,10 +1323,13 @@ PrefabInstance:
       propertyPath: _throwWhenUnselected
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8447558945522383829, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: _kinematicWhileSelected
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1573604312340686279, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 7696579781732438384, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4308803192766203546, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
@@ -2207,7 +2222,7 @@ MonoBehaviour:
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 1
   m_ForceGravityOnDetach: 1
-  m_RetainTransformParent: 1
+  m_RetainTransformParent: 0
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
