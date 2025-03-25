@@ -69,6 +69,7 @@ GameObject:
   - component: {fileID: 6538862274560717566}
   - component: {fileID: 8273725684832374128}
   - component: {fileID: 3657186995822790550}
+  - component: {fileID: 1237978745894607030}
   m_Layer: 0
   m_Name: BagAttachment
   m_TagString: Untagged
@@ -127,6 +128,34 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 128
+  m_DestroyCollidedObject: 0
+--- !u!54 &1237978745894607030
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606720581739476720}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1044965323012969793
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +979,7 @@ GameObject:
   - component: {fileID: 1838084577744534495}
   - component: {fileID: 8590690892109179568}
   - component: {fileID: 6904787048263597018}
+  - component: {fileID: 3986778442248652370}
   m_Layer: 0
   m_Name: AdhesiveAttachmentPoint
   m_TagString: Untagged
@@ -966,7 +996,7 @@ Transform:
   m_GameObject: {fileID: 8415565296499308152}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000029802319, y: -8.7857177e-10, z: 0.11781088, w: 0.99303603}
-  m_LocalPosition: {x: 0.059999634, y: -0.080000065, z: 0.1000007}
+  m_LocalPosition: {x: 0.02, y: 0.08, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1008,6 +1038,34 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 128
+  m_DestroyCollidedObject: 0
+--- !u!54 &3986778442248652370
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415565296499308152}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8936670074801665422
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,7 +2076,7 @@ MonoBehaviour:
   m_InteractionManager: {fileID: 0}
   m_InteractionLayers:
     m_Bits: 4294967295
-  m_Handedness: 0
+  m_Handedness: 1
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -2088,8 +2146,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
+    m_InputActionReferencePerformed: {fileID: 5856299955432464874, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    m_InputActionReferenceValue: {fileID: 5856299955432464874, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0
@@ -2331,8 +2389,8 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_InputActionReferencePerformed: {fileID: 0}
-    m_InputActionReferenceValue: {fileID: 0}
+    m_InputActionReferencePerformed: {fileID: 6662438783477144824, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    m_InputActionReferenceValue: {fileID: 6662438783477144824, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualPerformed: 0
     m_ManualValue: 0

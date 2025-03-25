@@ -8,6 +8,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 647464613271286727, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6806135612365060549}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6806135612365060549}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6806135612365060549}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6806135612365060549}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AttachmentPart, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AttachmentPart, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AttachmentPart, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AttachmentPart, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Name
       value: AdhesiveAttachment
@@ -26,15 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3370965199086390188, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.0919871
+      value: -1.897
       objectReference: {fileID: 0}
     - target: {fileID: 3370965199086390188, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2694232
+      value: 1.168
       objectReference: {fileID: 0}
     - target: {fileID: 3370965199086390188, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.17699999
+      value: 0.754
       objectReference: {fileID: 0}
     - target: {fileID: 3370965199086390188, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -71,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 4615726654562198330, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.187
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649147593470966171, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Step
