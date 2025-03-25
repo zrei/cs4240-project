@@ -52,8 +52,7 @@ public class StepManager : Singleton<StepManager>
             GlobalEvents.StepsEvents.OnBeginStep?.Invoke(CurrStepSO);
         }
         else
-            // handle completion of all steps in this scenario
-            return;
+            GlobalEvents.StepsEvents.OnCompleteAllSteps?.Invoke();
     }
     #endregion
 }

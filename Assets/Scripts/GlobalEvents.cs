@@ -13,5 +13,6 @@ public static class GlobalEvents {
         
         public static VoidEvent OnCompleteStep;
         public static StepSOEvent OnBeginStep;
+        public static VoidEvent OnCompleteAllSteps;
     }
 }
