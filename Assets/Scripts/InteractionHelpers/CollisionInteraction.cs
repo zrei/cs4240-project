@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 public class CollisionInteraction : MonoBehaviour
 {
     [SerializeField] private LayerMask m_AllowedLayers;
+    [SerializeField] private bool m_DestroyCollidedObject = false;
 
     /// <summary>
     /// For additional hook-ons
@@ -20,6 +21,10 @@ public class CollisionInteraction : MonoBehaviour
         //Logger.Log(typeof(CollisionInteraction), this.gameObject, "Trigger enter", LogLevel.LOG);
         if (((1 << other.gameObject.layer) & m_AllowedLayers) != 0)
         {
+            if (m_DestroyCollidedObject)
+            {
+                Destroy(other.gameObject);
+            }
             //Logger.Log(typeof(CollisionInteraction), this.gameObject, other.gameObject.name + ", position: " + other.gameObject.transform.position, LogLevel.LOG);
             OnCollisionInteraction?.Invoke();
             GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
