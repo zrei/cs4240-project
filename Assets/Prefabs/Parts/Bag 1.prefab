@@ -5272,7 +5272,7 @@ MonoBehaviour:
   m_Step: 0
   m_StepComponents: []
   m_StepGameObjects:
-  - GameObject: {fileID: 0}
+  - GameObject: {fileID: 280286321043731173}
     DisabledBeforeStep: 1
     DisabledAfterStep: 0
 --- !u!114 &2771147491250220114
@@ -5290,6 +5290,6 @@ MonoBehaviour:
   m_Step: 1
   m_StepComponents: []
   m_StepGameObjects:
-  - GameObject: {fileID: 0}
+  - GameObject: {fileID: 280286321043731173}
     DisabledBeforeStep: 0
     DisabledAfterStep: 1
