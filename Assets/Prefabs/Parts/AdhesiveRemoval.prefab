@@ -67,7 +67,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 2
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 1513107389426448941}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 0
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
     DisabledBeforeStep: 1
@@ -85,7 +88,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 3
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 1513107389426448941}
+    DisabledBeforeStep: 0
+    DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
     DisabledBeforeStep: 0
