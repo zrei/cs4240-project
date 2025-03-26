@@ -9,7 +9,7 @@ public class AttachmentPart : MonoBehaviour
 {
     [Header("Attachment")]
     [SerializeField] private Transform attachmentPoint;
-    [SerializeField] private float attachDistance = 0.1f; 
+    [SerializeField] private float attachDistance = 0.1f;
 
     [Header("Joint Settings")]
     [SerializeField] private float jointBreakForce = 4000f;
@@ -23,11 +23,25 @@ public class AttachmentPart : MonoBehaviour
 
     private FixedJoint _joint;
 
+    private CollisionInteraction m_CollisionInteraction;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _objectTransform = transform;
         _grabInteractable = GetComponent<XRInteraction.Interactables.XRGrabInteractable>();
+        m_CollisionInteraction = attachmentPoint.GetComponentInChildren<CollisionInteraction>();
+
+        if (m_CollisionInteraction)
+        {
+            m_CollisionInteraction.OnCollisionInteraction += OnCollideWithAttachedPoint;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (m_CollisionInteraction)
+            m_CollisionInteraction.OnCollisionInteraction -= OnCollideWithAttachedPoint;
     }
 
 
@@ -65,18 +79,19 @@ public class AttachmentPart : MonoBehaviour
         _isBeingGrabbed = false;
     }
 
-
-    private void OnAttach()
+    private void OnCollideWithAttachedPoint()
     {
-        transform.parent = attachmentPoint;
-
-        transform.localPosition = Vector3.zero;
-        transform.localRotation = Quaternion.identity;
-        //m_Rigidbody.useGravity = false;
+        if (_isAttached)
+            return;
+        AttachToPoint();
     }
 
-    public void AttachToPoint()
+
+    private void AttachToPoint()
     {
+        if (m_CollisionInteraction)
+            m_CollisionInteraction.OnCollisionInteraction -= OnCollideWithAttachedPoint;
+
         if (attachmentPoint != null)
         {
             transform.position = attachmentPoint.position;
