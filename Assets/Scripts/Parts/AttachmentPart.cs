@@ -80,6 +80,7 @@ public class AttachmentPart : MonoBehaviour
         if (attachmentPoint != null)
         {
             transform.position = attachmentPoint.position;
+            transform.rotation = attachmentPoint.rotation;
             
             if (_joint != null)
             {

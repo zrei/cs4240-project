@@ -110,6 +110,7 @@ public class StomaBag : MonoBehaviour
             {
                 connectorRb = stomaConnector.gameObject.AddComponent<Rigidbody>();
                 connectorRb.isKinematic = true;
+                connectorRb.useGravity = false;
                 connectorRb.interpolation = RigidbodyInterpolation.Interpolate;
             }
             
