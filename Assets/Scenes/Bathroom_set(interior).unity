@@ -866,6 +866,26 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 782583449}
+    - target: {fileID: 3110107513089710988, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_SingleActivate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450424006951039754, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_StepComponents.Array.data[0].Component
+      value: 
+      objectReference: {fileID: 1613788165}
+    - target: {fileID: 3657186995822790550, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_LimitByTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657186995822790550, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_AllowedTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657186995822790550, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: 'm_AllowedTags.Array.data[0]'
+      value: StomaBag
+      objectReference: {fileID: 0}
     - target: {fileID: 4019146164352038158, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: _supportedGrabTypes
       value: -1
@@ -938,6 +958,18 @@ PrefabInstance:
       propertyPath: attachmentPoint
       value: 
       objectReference: {fileID: 154033037}
+    - target: {fileID: 6904787048263597018, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_LimitByTag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904787048263597018, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_AllowedTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904787048263597018, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: 'm_AllowedTags.Array.data[0]'
+      value: Adhesive
+      objectReference: {fileID: 0}
     - target: {fileID: 7245643116185198768, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: _openXRSkinnedMeshRenderer
       value: 
@@ -978,8 +1010,20 @@ PrefabInstance:
       propertyPath: _kinematicWhileSelected
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8590690892109179568, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702174742648977830, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_StepComponents.Array.data[0].Component
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950752993180775105, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+      propertyPath: m_SingleActivate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 1573604312340686279, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1759,6 +1803,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+--- !u!114 &1613788165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3110107513089710988, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
+  m_PrefabInstance: {fileID: 770700964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa3ad4df0d3887418b542f2063b49b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1649193396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8343759115739926035, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}

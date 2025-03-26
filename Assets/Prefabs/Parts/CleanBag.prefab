@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2721585956707551525}
   m_Layer: 7
   m_Name: CleanBag
-  m_TagString: Untagged
+  m_TagString: Bag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Step: 6
   m_StepComponents:
-  - Component: {fileID: 3747030462552832178}
-    DisabledBeforeStep: 0
+  - Component: {fileID: 1037492550039687626}
+    DisabledBeforeStep: 1
     DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 6677250755782721126}

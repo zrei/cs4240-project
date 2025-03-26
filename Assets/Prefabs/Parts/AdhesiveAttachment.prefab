@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_TagString
+      value: Adhesive
+      objectReference: {fileID: 0}
     - target: {fileID: 2141976493578606560, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -123,9 +127,13 @@ PrefabInstance:
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].Component
       value: 
-      objectReference: {fileID: 1797893134499930577}
+      objectReference: {fileID: 6813489381384310229}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].DisabledAfterStep
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_StepComponents.Array.data[0].DisabledBeforeStep
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
@@ -145,17 +153,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6565546713978933258}
   m_SourcePrefab: {fileID: 100100000, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
---- !u!114 &1797893134499930577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5945496010351285801, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-  m_PrefabInstance: {fileID: 5364283419662940152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6197892008201526430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
@@ -196,3 +193,14 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6813489381384310229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+  m_PrefabInstance: {fileID: 5364283419662940152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197892008201526430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
