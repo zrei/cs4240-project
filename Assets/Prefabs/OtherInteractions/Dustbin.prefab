@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1708063217216465673}
   - component: {fileID: 5897281411691345881}
   - component: {fileID: 5904816100599539361}
+  - component: {fileID: 7941952311430924991}
   m_Layer: 0
   m_Name: Dustbin
   m_TagString: Untagged
@@ -124,6 +125,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   m_DestroyCollidedObject: 1
+  m_LimitByTag: 0
+  m_AllowedTags: []
 --- !u!114 &5897281411691345881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +166,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &7941952311430924991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822280459568064943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb79a2404427124c8d23938c6d9e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 8
+  m_StepComponents:
+  - Component: {fileID: 1708063217216465673}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 1
+  m_StepGameObjects: []
