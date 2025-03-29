@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3520405727750725767}
   - component: {fileID: 2476455597550735934}
   - component: {fileID: 2721585956707551525}
+  - component: {fileID: 3401032873723684391}
   m_Layer: 7
   m_Name: CleanBag
   m_TagString: Bag
@@ -188,34 +189,10 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2476455597550735934}
-        m_TargetAssemblyTypeName: AttachmentPart, Assembly-CSharp
-        m_MethodName: OnGrabbed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2476455597550735934}
-        m_TargetAssemblyTypeName: AttachmentPart, Assembly-CSharp
-        m_MethodName: OnReleased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -343,6 +320,18 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &3401032873723684391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721399251709929393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf5f4e8224247848a12b83959ab4bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6677250755782721126
 GameObject:
   m_ObjectHideFlags: 0

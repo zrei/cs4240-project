@@ -99,7 +99,6 @@ public class SingleStepHandler : MonoBehaviour
     {
         foreach (StepGameObject stepGameObject in m_StepGameObjects)
         {
-            Debug.Log(!stepGameObject.DisabledAfterStep);
             stepGameObject.GameObject.SetActive(!stepGameObject.DisabledAfterStep);
         }
     }

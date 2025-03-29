@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 1188817398625917170, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: _supportedGrabTypes
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -143,6 +147,8 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7535531843153581500, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     - {fileID: 4564526965228555011, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+    - {fileID: 430492189465398370, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+    - {fileID: 6848697600757105273, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

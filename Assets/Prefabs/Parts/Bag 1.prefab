@@ -4970,6 +4970,8 @@ GameObject:
   - component: {fileID: 14641618158708517}
   - component: {fileID: 6016929172377750667}
   - component: {fileID: 2771147491250220114}
+  - component: {fileID: 2281921507734547910}
+  - component: {fileID: 7116871684747839648}
   m_Layer: 3
   m_Name: Bag 1
   m_TagString: Untagged
@@ -5107,7 +5109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a251a126b87885746a66098e67f832e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stomaConnector: {fileID: 0}
   liquidParticles: {fileID: 6588499591371627422}
   pourThreshold: 0.7
   maxEmissionRate: 100
@@ -5158,34 +5159,10 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4094147292988486755}
-        m_TargetAssemblyTypeName: StomaBag, Assembly-CSharp
-        m_MethodName: OnGrabbed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4094147292988486755}
-        m_TargetAssemblyTypeName: StomaBag, Assembly-CSharp
-        m_MethodName: OnReleased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -5200,34 +5177,10 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4094147292988486755}
-        m_TargetAssemblyTypeName: StomaBag, Assembly-CSharp
-        m_MethodName: OnGrabbed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4094147292988486755}
-        m_TargetAssemblyTypeName: StomaBag, Assembly-CSharp
-        m_MethodName: OnReleased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -5323,3 +5276,29 @@ MonoBehaviour:
   - GameObject: {fileID: 280286321043731173}
     DisabledBeforeStep: 0
     DisabledAfterStep: 1
+--- !u!114 &2281921507734547910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899880594541524563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cf5f4e8224247848a12b83959ab4bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7116871684747839648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899880594541524563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afc4459534003640a7d9add1f2c9c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attachmentPoint: {fileID: 0}
+  attachDistance: 0.1

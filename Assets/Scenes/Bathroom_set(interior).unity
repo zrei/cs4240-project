@@ -665,6 +665,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be0c31901f815854fbcfe8d0a3962c80, type: 3}
   m_PrefabInstance: {fileID: 842390173}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &520421838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4094147292988486755, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+  m_PrefabInstance: {fileID: 712856392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a251a126b87885746a66098e67f832e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &564736399
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,6 +796,50 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 782583449}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 520421838}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPinchGrabbed
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPinchReleased
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TestHover
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHandReleased
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHandGrabbed
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StomaBag, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4094147292988486755, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
       propertyPath: stomaConnector
       value: 
@@ -829,6 +884,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -25.67
       objectReference: {fileID: 0}
+    - target: {fileID: 7116871684747839648, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      propertyPath: attachmentPoint
+      value: 
+      objectReference: {fileID: 1239910562}
     - target: {fileID: 7899880594541524563, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
       propertyPath: m_Name
       value: Bag 1
@@ -1021,10 +1080,6 @@ PrefabInstance:
     - target: {fileID: 8950752993180775105, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
       propertyPath: m_SingleActivate
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100357943305492159, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -1798,6 +1853,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 13.532
       objectReference: {fileID: 0}
+    - target: {fileID: 6848697600757105273, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: attachmentPoint
+      value: 
+      objectReference: {fileID: 154033037}
     - target: {fileID: 7535531843153581500, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: attachmentPoint
       value: 
@@ -2068,6 +2127,10 @@ PrefabInstance:
       propertyPath: attachmentPoint
       value: 
       objectReference: {fileID: 154033037}
+    - target: {fileID: 6813489381384310229, guid: 5414025a900b3b546a611773a413fa67, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 782583449}
     - target: {fileID: 7258062778369932372, guid: 5414025a900b3b546a611773a413fa67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.897

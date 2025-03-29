@@ -1,10 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
-using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
-using System.Collections;
 
-
-[RequireComponent(typeof(Rigidbody), typeof(UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable))]
+[RequireComponent(typeof(GrabResponse))]
 public class AttachmentPart : MonoBehaviour
 {
     [Header("Attachment")]
@@ -16,10 +12,9 @@ public class AttachmentPart : MonoBehaviour
     [SerializeField] private bool enableCollision = false;
 
     private Rigidbody _rb;
-    private XRInteraction.Interactables.XRGrabInteractable _grabInteractable;
+    private GrabResponse _grabResponse;
     private Transform _objectTransform;
     private bool _isAttached = false;
-    private bool _isBeingGrabbed = false;
 
     private FixedJoint _joint;
 
@@ -29,9 +24,10 @@ public class AttachmentPart : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _objectTransform = transform;
-        _grabInteractable = GetComponent<XRInteraction.Interactables.XRGrabInteractable>();
-        m_CollisionInteraction = attachmentPoint.GetComponentInChildren<CollisionInteraction>();
+        _grabResponse = GetComponent<GrabResponse>();
+        m_CollisionInteraction = attachmentPoint.GetComponentInChildren<CollisionInteraction>(true);
 
+        Debug.Log(m_CollisionInteraction);
         if (m_CollisionInteraction)
         {
             m_CollisionInteraction.OnCollisionInteraction += OnCollideWithAttachedPoint;
@@ -48,7 +44,7 @@ public class AttachmentPart : MonoBehaviour
     private void Update()
     {
 
-        if (_isBeingGrabbed && !_isAttached)
+        if (_grabResponse.IsBeingGrabbed && !_isAttached)
         {
             float distanceToAttach = Vector3.Distance(_objectTransform.position, attachmentPoint.position);
             
@@ -61,31 +57,12 @@ public class AttachmentPart : MonoBehaviour
         }
     }
 
-    public void OnGrabbed()
-    {
-        Debug.Log($"{gameObject.name} grabbed");
-        _isBeingGrabbed = true;
-        
-
-        if (_isAttached)
-        {
-            DetachFromPoint();
-        }
-    }
-
-    public void OnReleased()
-    {
-        Debug.Log("Object released");
-        _isBeingGrabbed = false;
-    }
-
     private void OnCollideWithAttachedPoint()
     {
         if (_isAttached)
             return;
         AttachToPoint();
     }
-
 
     private void AttachToPoint()
     {
@@ -123,20 +100,5 @@ public class AttachmentPart : MonoBehaviour
             
             Debug.Log($"{gameObject.name} firmly attached to point");
         }
-    }
-
-    public void DetachFromPoint()
-    {
-        Debug.Log("Detach Called");
-        if (_joint != null)
-        {
-            Destroy(_joint);
-        }
-        
-        _rb.isKinematic = false;
-        _rb.useGravity = true;
-        _rb.constraints = RigidbodyConstraints.None;
-        
-        _isAttached = false;
     }
 }
