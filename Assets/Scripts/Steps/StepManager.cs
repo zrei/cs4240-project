@@ -35,6 +35,31 @@ public class StepManager : Singleton<StepManager>
         GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
     }
 
+    public void GoToStep(Steps targetStep)
+    {
+        StepSO targetStepSO = m_Steps.Find(step => step.m_Step == targetStep);
+
+        if (targetStepSO == null)
+        {
+            Debug.Log("Not a valid step");
+            return;
+        }
+
+        int targetIndex = m_Steps.IndexOf(targetStepSO);
+
+        var handlers = FindObjectsOfType<SingleStepHandler>();
+        foreach (var handler in handlers)
+        {
+            handler.ResetHandler();
+        }
+
+        m_CurrStepIndex = targetIndex;
+
+        OnGoToStep();
+    }
+
+
+
     #region Step Handling
     private void OnCompleteStep()
     {

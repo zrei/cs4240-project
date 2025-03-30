@@ -102,4 +102,22 @@ public class SingleStepHandler : MonoBehaviour
             stepGameObject.GameObject.SetActive(!stepGameObject.DisabledAfterStep);
         }
     }
+
+    public void ResetHandler()
+    {
+        m_IsActive = false;
+
+        ToggleBeforeStep(false);
+
+        if (GlobalEvents.StepsEvents.OnBeginStep != null)
+        {
+            GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
+            GlobalEvents.StepsEvents.OnBeginStep += OnBeginStep;
+        }
+
+        if (GlobalEvents.StepsEvents.OnCompleteStep != null)
+        {
+            GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
+        }
+    }
 }

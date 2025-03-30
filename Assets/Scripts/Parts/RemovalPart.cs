@@ -44,7 +44,7 @@ public class RemovalPart : MonoBehaviour
         }
     }
 
-    private void AttachToConnector()
+    public void AttachToConnector()
     {
         if (attachmentPoint != null)
         {
