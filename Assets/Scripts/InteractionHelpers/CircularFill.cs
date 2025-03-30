@@ -26,6 +26,7 @@ public class CircularFill : MonoBehaviour
         {
             m_FilledSections.Add(false);
         }
+        Debug.Log($"NumfilledSegments {NumFilledSegments}");
         m_CircularPlane.SegmentTouchedEvent += OnSegmentTouch;
     }
 
@@ -37,6 +38,7 @@ public class CircularFill : MonoBehaviour
     private void OnSegmentTouch(int segmentIndex)
     {
         m_FilledSections[segmentIndex] = true;
+        Debug.Log($"NumfilledSegments {NumFilledSegments}");
         OnPercentageChangeEvent?.Invoke(CurrPercentage);
 
         if ((m_AllowMultiInvoke || !m_HasBeenInvoked) && CurrPercentage >= m_RequiredFillPercentage)

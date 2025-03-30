@@ -4962,9 +4962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7089218011429716026}
-  - component: {fileID: 7445073299172397231}
   - component: {fileID: 2798846279295429420}
-  - component: {fileID: 4954782200289719287}
   - component: {fileID: 5081994158292420533}
   - component: {fileID: 4094147292988486755}
   - component: {fileID: 14641618158708517}
@@ -4972,6 +4970,8 @@ GameObject:
   - component: {fileID: 2771147491250220114}
   - component: {fileID: 2281921507734547910}
   - component: {fileID: 7116871684747839648}
+  - component: {fileID: 363110435674517444}
+  - component: {fileID: 1466350329593927897}
   m_Layer: 3
   m_Name: Bag 1
   m_TagString: Untagged
@@ -4989,21 +4989,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7472867, y: -0.1702595, z: -0.14268756, w: 0.62627053}
   m_LocalPosition: {x: -1.835, y: 0.862, z: -0.139}
-  m_LocalScale: {x: 0.15, y: 0.03, z: 0.2}
+  m_LocalScale: {x: 6.5, y: 5, z: 6.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4784182239654849988}
   - {fileID: 9129741773393742161}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -100.07, y: 0, z: -25.67}
---- !u!33 &7445073299172397231
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7899880594541524563}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2798846279295429420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5049,27 +5041,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4954782200289719287
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7899880594541524563}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5081994158292420533
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5147,7 +5118,19 @@ MonoBehaviour:
       m_Calls: []
   m_HoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4094147292988486755}
+        m_TargetAssemblyTypeName: StomaBag, Assembly-CSharp
+        m_MethodName: TestHover
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -5302,3 +5285,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachmentPoint: {fileID: 0}
   attachDistance: 0.1
+--- !u!33 &363110435674517444
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899880594541524563}
+  m_Mesh: {fileID: -462981019419857548, guid: dfa1526b88ca143c0bfbd0eceecfce43, type: 3}
+--- !u!65 &1466350329593927897
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899880594541524563}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020000005, y: 0.008888794, z: 0.030681783}
+  m_Center: {x: -5.397627e-12, y: 0.00003620798, z: -5.397627e-13}

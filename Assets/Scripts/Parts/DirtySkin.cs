@@ -21,6 +21,7 @@ public class DirtySkin : MonoBehaviour
     {
         // visual update
         GlobalEvents.StepsEvents.OnCompleteStep?.Invoke();
+        Debug.Log("Dirty SKin Event should be called");
     }
 
     private void OnPercentageUpdate(float currPercentage)

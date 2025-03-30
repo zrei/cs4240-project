@@ -33,9 +33,16 @@ public class SegmentedCircularPlaneCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Triggered by: {other.gameObject.name}");
         if (((1 << other.gameObject.layer) & m_InteractionMask) != 0)
         {
             TriggeredEvent?.Invoke();
         }
+    }
+
+    public void enable()
+    {
+        BoxCollider collider = GetComponent<BoxCollider>();
+        collider.isTrigger = true;
     }
 }
