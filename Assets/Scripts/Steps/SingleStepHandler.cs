@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SingleStepHandler : MonoBehaviour
+public class SingleStepHandler : StepResponse
 {
     [System.Serializable]
     private struct StepComponent
@@ -19,43 +19,25 @@ public class SingleStepHandler : MonoBehaviour
         public bool DisabledAfterStep;
     }
 
-    [SerializeField] private Steps m_Step;
     [SerializeField] private List<StepComponent> m_StepComponents;
     [SerializeField] private List<StepGameObject> m_StepGameObjects;
 
-    public Steps Step => m_Step;
-    private bool m_IsActive = false;
-
-    private void Awake()
+    protected override void Awake()
     {
-        GlobalEvents.StepsEvents.OnBeginStep += OnBeginStep;
+        base.Awake();
         ToggleBeforeStep(false);
     }
 
-    private void OnDestroy()
+    protected override void OnBeginStep()
     {
-        GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
-        GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
+        Logger.Log(typeof(SingleStepHandler), this.gameObject, "Begin step " + Step, LogLevel.LOG);
+        ToggleBeforeStep(true);
     }
 
-    private void OnBeginStep(StepSO stepSO)
+    protected override void OnCompleteStep()
     {
-        m_IsActive = stepSO.m_Step == m_Step;
-        
-        if (m_IsActive)
-        {
-            GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
-            Logger.Log(typeof(SingleStepHandler), this.gameObject, "Begin step " + m_Step, LogLevel.LOG);
-            ToggleBeforeStep(true);
-            GlobalEvents.StepsEvents.OnCompleteStep += OnCompleteStep;
-        }
-    }
-
-    private void OnCompleteStep()
-    {
-        GlobalEvents.StepsEvents.OnCompleteStep -= OnCompleteStep;
-        Logger.Log(typeof(SingleStepHandler), this.gameObject, "Complete step " + m_Step, LogLevel.LOG);
-        m_IsActive = false;
+        base.OnCompleteStep();
+        Logger.Log(typeof(SingleStepHandler), this.gameObject, "Complete step " + Step, LogLevel.LOG);
         ToggleAfterStep();
     }
 
@@ -105,14 +87,12 @@ public class SingleStepHandler : MonoBehaviour
 
     public void ResetHandler()
     {
-        m_IsActive = false;
-
         ToggleBeforeStep(false);
 
         if (GlobalEvents.StepsEvents.OnBeginStep != null)
         {
-            GlobalEvents.StepsEvents.OnBeginStep -= OnBeginStep;
-            GlobalEvents.StepsEvents.OnBeginStep += OnBeginStep;
+            GlobalEvents.StepsEvents.OnBeginStep -= OnStepChange;
+            GlobalEvents.StepsEvents.OnBeginStep += OnStepChange;
         }
 
         if (GlobalEvents.StepsEvents.OnCompleteStep != null)
