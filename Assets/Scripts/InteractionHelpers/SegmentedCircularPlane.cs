@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using System.Linq;
 
 /// <summary>
 /// Use as a component to hook up with interactions that require touching a circle
@@ -28,15 +30,46 @@ public class SegmentedCircularPlane : MonoBehaviour
     public IntEvent SegmentTouchedEvent;
     public Transform ColliderParent => m_ColliderParent;
 
+    private List<bool> m_InContactSections;
+
+    public VoidEvent OnStartContactEvent;
+    public VoidEvent OnEndContactEvent;
+
     private void Awake()
     {
+        m_InContactSections = new();
         for (int i = 0; i < ColliderParent.childCount; ++i)
         {
             int index = i;
             SegmentedCircularPlaneCollider collider = ColliderParent.GetChild(i).GetComponent<SegmentedCircularPlaneCollider>();
             collider.Init(m_InteractionMask);
-            collider.TriggeredEvent += () => SegmentTouchedEvent(index);
+            collider.OnTriggerEnterEvent += () => OnSegmentTriggerEnter(index);
+            collider.OnTriggerExitEvent += () => OnSegmentTriggerExit(index);
+            m_InContactSections.Add(false);
         }
+    }
+
+    private void OnSegmentTriggerEnter(int index)
+    {
+        m_InContactSections[index] = true;
+        SegmentTouchedEvent?.Invoke(index);
+
+        for (int i = 0; i < m_InContactSections.Count; ++i)
+        {
+            if (i == index)
+                continue;
+            if (m_InContactSections[i])
+                return;
+        }
+        OnStartContactEvent?.Invoke();
+    }
+
+    private void OnSegmentTriggerExit(int index)
+    {
+        m_InContactSections[index] = false;
+
+        if (m_InContactSections.All(x => !x))
+            OnEndContactEvent?.Invoke();
     }
 }
 

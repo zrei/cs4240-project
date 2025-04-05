@@ -12,6 +12,9 @@ public class RemovalPart : MonoBehaviour
     [SerializeField] private Transform attachmentPoint;
     [SerializeField] private float attachDistance = 0.1f;
 
+    [Header("Sound")]
+    [SerializeField] private SoundCue m_RemovalSound;
+
     private FixedJoint _joint;
 
     private Rigidbody _rb;
@@ -92,6 +95,11 @@ public class RemovalPart : MonoBehaviour
 
     private void DetachFromConnector()
     {
+        if (m_RemovalSound != null)
+        {
+            m_RemovalSound.ToggleSoundPlaying(true);
+        }
+
         Debug.Log("Detach Called");
         if (_joint != null)
         {

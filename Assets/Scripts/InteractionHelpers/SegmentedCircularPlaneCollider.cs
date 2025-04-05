@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class SegmentedCircularPlaneCollider : MonoBehaviour
 {
-    public VoidEvent TriggeredEvent;
+    public VoidEvent OnTriggerEnterEvent;
+    public VoidEvent OnTriggerExitEvent;
 
     private LayerMask m_InteractionMask = -1;
 
@@ -36,7 +37,16 @@ public class SegmentedCircularPlaneCollider : MonoBehaviour
         Debug.Log($"Triggered by: {other.gameObject.name}");
         if (((1 << other.gameObject.layer) & m_InteractionMask) != 0)
         {
-            TriggeredEvent?.Invoke();
+            OnTriggerEnterEvent?.Invoke();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log($"Triggered by: {other.gameObject.name}");
+        if (((1 << other.gameObject.layer) & m_InteractionMask) != 0)
+        {
+            OnTriggerExitEvent?.Invoke();
         }
     }
 

@@ -17,6 +17,9 @@ public class CircularFill : MonoBehaviour
     public VoidEvent OnFillPercentage;
     private bool m_HasBeenInvoked = false;
 
+    public VoidEvent OnContactStartEvent;
+    public VoidEvent OnContactEndEvent;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -28,11 +31,15 @@ public class CircularFill : MonoBehaviour
         }
         Debug.Log($"NumfilledSegments {NumFilledSegments}");
         m_CircularPlane.SegmentTouchedEvent += OnSegmentTouch;
+        m_CircularPlane.OnEndContactEvent += OnContactEndEvent;
+        m_CircularPlane.OnStartContactEvent += OnContactStartEvent;
     }
 
     private void OnDestroy()
     {
         m_CircularPlane.SegmentTouchedEvent -= OnSegmentTouch;
+        m_CircularPlane.OnEndContactEvent -= OnContactEndEvent;
+        m_CircularPlane.OnStartContactEvent -= OnContactStartEvent;
     }
 
     private void OnSegmentTouch(int segmentIndex)
