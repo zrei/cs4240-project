@@ -1417,10 +1417,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 14641618158708517, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 782583449}
     - target: {fileID: 7089218011429716026, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.835
@@ -2508,10 +2504,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 194574893510271999, guid: 27ce547ce33e0e54faab8c6980ad81e5, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 782583449}
     - target: {fileID: 858724216216204080, guid: 27ce547ce33e0e54faab8c6980ad81e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.859
@@ -2785,10 +2777,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 782583449}
     - target: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Name
       value: AdhesiveRemoval
@@ -2834,10 +2822,6 @@ PrefabInstance:
       value: 13.532
       objectReference: {fileID: 0}
     - target: {fileID: 6848697600757105273, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-      propertyPath: attachmentPoint
-      value: 
-      objectReference: {fileID: 154033037}
-    - target: {fileID: 7535531843153581500, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: attachmentPoint
       value: 
       objectReference: {fileID: 154033037}
@@ -3741,10 +3725,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CleanBag
       objectReference: {fileID: 0}
-    - target: {fileID: 1037492550039687626, guid: 3b8ff980c9e6edb4ea83812294a55d30, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 782583449}
     - target: {fileID: 2476455597550735934, guid: 3b8ff980c9e6edb4ea83812294a55d30, type: 3}
       propertyPath: attachmentPoint
       value: 

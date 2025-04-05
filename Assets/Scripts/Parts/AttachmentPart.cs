@@ -27,7 +27,6 @@ public class AttachmentPart : MonoBehaviour
         _grabResponse = GetComponent<GrabResponse>();
         m_CollisionInteraction = attachmentPoint.GetComponentInChildren<CollisionInteraction>(true);
 
-        Debug.Log(m_CollisionInteraction);
         if (m_CollisionInteraction)
         {
             m_CollisionInteraction.OnCollisionInteraction += OnCollideWithAttachedPoint;

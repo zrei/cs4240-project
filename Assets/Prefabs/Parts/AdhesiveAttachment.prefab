@@ -126,12 +126,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].Component
       value: 
-      objectReference: {fileID: 6813489381384310229}
+      objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].DisabledAfterStep
       value: 1
@@ -199,14 +199,3 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &6813489381384310229 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1513107389426448941, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
-  m_PrefabInstance: {fileID: 5364283419662940152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6197892008201526430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
