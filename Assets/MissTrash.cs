@@ -1,18 +1,22 @@
 using UnityEngine;
 
-public class MissTrash : MonoBehaviour
+public class MissTrash : ResetPart
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Steps m_Step;
     [SerializeField] private Collider m_Collision;
 
-    void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.collider == m_Collision)
+        {
+            Debug.Log("Collision detected with: " + collision.gameObject.name);
+
+            Reset();
+        }
     }
 
-
-    void reset()
+    protected override void Reset()
     {
         RemovalPart removalPart = GetComponent<RemovalPart>();
         if (removalPart != null)
@@ -21,18 +25,4 @@ public class MissTrash : MonoBehaviour
         }
         StepManager.Instance.GoToStep(m_Step);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider == m_Collision)
-        {
-            Debug.Log("Collision detected with: " + collision.gameObject.name);
-
-            reset();
-        }
-    }
-
-
-
-
 }

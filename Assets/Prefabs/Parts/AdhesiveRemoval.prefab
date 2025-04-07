@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 430492189465398370}
   - component: {fileID: 7212980097924808901}
   - component: {fileID: 3508903109792648710}
+  - component: {fileID: 8368533802047007319}
   m_Layer: 3
   m_Name: AdhesiveRemoval
   m_TagString: Untagged
@@ -74,7 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 3
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 8368533802047007319}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
     DisabledBeforeStep: 0
@@ -335,6 +339,27 @@ MonoBehaviour:
   m_SoundSO: {fileID: 11400000, guid: a7c0a83a2e4519f40ab2d6d12e570dc2, type: 2}
   m_AdditionalAudioVolumeMultiplier: 1
   m_LoopOncePlaying: 0
+--- !u!114 &8368533802047007319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049866432037219174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd46aeb459dc68548a791e15ce880277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UseMinimumHeight: 1
+  m_CalculateHeightRelativeToOriginalPosition: 1
+  m_MinimumHeight: -1
+  m_UseTrigger: 0
+  m_AllowedLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Step: 2
+  m_Collision: {fileID: 0}
 --- !u!1 &2284039913228964381
 GameObject:
   m_ObjectHideFlags: 0

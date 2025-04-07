@@ -4973,6 +4973,7 @@ GameObject:
   - component: {fileID: 1466350329593927897}
   - component: {fileID: 5365839195881900611}
   - component: {fileID: 4079971561318727122}
+  - component: {fileID: 8272632455553658456}
   m_Layer: 3
   m_Name: Bag 1
   m_TagString: Untagged
@@ -5115,7 +5116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 1
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 8272632455553658456}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 280286321043731173}
     DisabledBeforeStep: 0
@@ -5291,3 +5295,24 @@ MonoBehaviour:
   m_SoundSO: {fileID: 11400000, guid: 2ca7a0fa16fae594cb26e8d227dbde73, type: 2}
   m_AdditionalAudioVolumeMultiplier: 1
   m_LoopOncePlaying: 0
+--- !u!114 &8272632455553658456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899880594541524563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd46aeb459dc68548a791e15ce880277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UseMinimumHeight: 1
+  m_CalculateHeightRelativeToOriginalPosition: 1
+  m_MinimumHeight: -1
+  m_UseTrigger: 0
+  m_AllowedLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Step: 0
+  m_Collision: {fileID: 0}
