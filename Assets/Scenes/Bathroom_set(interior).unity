@@ -1515,8 +1515,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7899880594541524563, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 712856394}
   m_SourcePrefab: {fileID: 100100000, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+--- !u!1 &712856393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7899880594541524563, guid: ef0416d7e37d4dd4fb14d46d5fe3e6b3, type: 3}
+  m_PrefabInstance: {fileID: 712856392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &712856394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712856393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd46aeb459dc68548a791e15ce880277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 0
+  m_Collision: {fileID: 1237613758}
 --- !u!1001 &770700964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2875,8 +2897,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1558556645}
   m_SourcePrefab: {fileID: 100100000, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+--- !u!1 &1558556644 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+  m_PrefabInstance: {fileID: 1558556643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1558556645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558556644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd46aeb459dc68548a791e15ce880277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 2
+  m_Collision: {fileID: 1237613758}
 --- !u!114 &1613788165 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3110107513089710988, guid: b2b04c5ec5c6f7f4b921454f189fe674, type: 3}
