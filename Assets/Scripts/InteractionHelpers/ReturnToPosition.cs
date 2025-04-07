@@ -1,5 +1,4 @@
 using UnityEngine;
-using XRInteraction = UnityEngine.XR.Interaction.Toolkit;
 
 public class ReturnToPosition : ResetPart
 {
@@ -11,8 +10,8 @@ public class ReturnToPosition : ResetPart
         transform.rotation = m_InitialRotation;
         if (m_Rigidbody)
         {
-            m_Rigidbody.useGravity = false;
-            m_Rigidbody.isKinematic = true;
+            m_Rigidbody.linearVelocity = Vector3.zero;
+            m_Rigidbody.angularVelocity = Vector3.zero;
         }
             
         OnReposition?.Invoke();

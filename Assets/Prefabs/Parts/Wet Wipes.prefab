@@ -153,6 +153,8 @@ GameObject:
   - component: {fileID: 318148537600425239}
   - component: {fileID: 7461486712771513410}
   - component: {fileID: 2056725021282736216}
+  - component: {fileID: 5144594797590877806}
+  - component: {fileID: 7740614660510385811}
   m_Layer: 3
   m_Name: Wet Wipes
   m_TagString: Untagged
@@ -310,14 +312,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 7
-  m_StepComponents:
-  - Component: {fileID: 7461486712771513410}
-    DisabledBeforeStep: 0
-    DisabledAfterStep: 1
+  m_StepComponents: []
   m_StepGameObjects:
   - GameObject: {fileID: 7711969174676226526}
     DisabledBeforeStep: 1
     DisabledAfterStep: 0
+--- !u!114 &5144594797590877806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183667424338399532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8b6c0ba2f0a0b4b811e3955c102333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 8
+  TransitionEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7740614660510385811}
+        m_TargetAssemblyTypeName: WetWipes, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7740614660510385811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183667424338399532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64197fc5eeeebaa4c819370bd2e02e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dirtyMaterial: {fileID: 2100000, guid: 7e17c42fa1108334eaa5c9596f180f6c, type: 2}
 --- !u!1 &5793813818197701186
 GameObject:
   m_ObjectHideFlags: 0
