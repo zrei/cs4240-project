@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Steps:
+  - {fileID: 11400000, guid: febaba281c418834e8b5d3c59887b519, type: 2}
   - {fileID: 11400000, guid: b50b6d7095ad08444b7888e6d6c64deb, type: 2}
   - {fileID: 11400000, guid: 2a616885984a0d74da34335e7a14805e, type: 2}
   - {fileID: 11400000, guid: 85165b681068d5d41936f63103e3fd68, type: 2}
@@ -148,3 +149,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ebef78a51688e44e8dbceb4183c110c, type: 2}
   - {fileID: 11400000, guid: c92c2ff53ea53554f903d5e37a2ca5c9, type: 2}
   - {fileID: 11400000, guid: 2954bb9bc8ca8dc4ba1b32b35ef5756e, type: 2}
+  m_CompleteStepSound: {fileID: 0}
