@@ -120,18 +120,22 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7807637353442397914, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_Step
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].Component
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2750449877158181154}
     - target: {fileID: 8346827642150874511, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
       propertyPath: m_StepComponents.Array.data[0].DisabledAfterStep
       value: 1
@@ -149,6 +153,7 @@ PrefabInstance:
     - {fileID: 4564526965228555011, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     - {fileID: 430492189465398370, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     - {fileID: 6848697600757105273, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+    - {fileID: 8368533802047007319, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -159,6 +164,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6565546713978933258}
   m_SourcePrefab: {fileID: 100100000, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+--- !u!114 &2750449877158181154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7807637353442397914, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
+  m_PrefabInstance: {fileID: 5364283419662940152}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197892008201526430}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6197892008201526430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2049866432037219174, guid: 5d5daf8a7373f4644b125771e82876b5, type: 3}
@@ -199,3 +215,4 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_ResetSound: {fileID: 0}

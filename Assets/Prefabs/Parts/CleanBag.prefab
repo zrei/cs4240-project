@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8459480790894990418}
   - component: {fileID: 4078356354760027010}
   - component: {fileID: 8391815246079761135}
+  - component: {fileID: 6444410904630026367}
   m_Layer: 7
   m_Name: CleanBag
   m_TagString: Bag
@@ -127,7 +128,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 6
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 6444410904630026367}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 6677250755782721126}
     DisabledBeforeStep: 1
@@ -167,6 +171,7 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_ResetSound: {fileID: 0}
 --- !u!114 &3401032873723684391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +328,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.019999998, y: 0.008888786, z: 0.030681774}
   m_Center: {x: 0, y: 0.000036222867, z: 0}
+--- !u!114 &6444410904630026367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721399251709929393}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.203542, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6677250755782721126
 GameObject:
   m_ObjectHideFlags: 0

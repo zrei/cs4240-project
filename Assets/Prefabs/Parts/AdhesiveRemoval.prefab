@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7212980097924808901}
   - component: {fileID: 3508903109792648710}
   - component: {fileID: 8368533802047007319}
+  - component: {fileID: 7807637353442397914}
   m_Layer: 3
   m_Name: AdhesiveRemoval
   m_TagString: Untagged
@@ -57,7 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 2
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 7807637353442397914}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 0
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
     DisabledBeforeStep: 1
@@ -78,6 +82,9 @@ MonoBehaviour:
   m_StepComponents:
   - Component: {fileID: 8368533802047007319}
     DisabledBeforeStep: 1
+    DisabledAfterStep: 1
+  - Component: {fileID: 7807637353442397914}
+    DisabledBeforeStep: 0
     DisabledAfterStep: 1
   m_StepGameObjects:
   - GameObject: {fileID: 2284039913228964381}
@@ -361,6 +368,24 @@ MonoBehaviour:
   m_ResetSound: {fileID: 0}
   m_Step: 2
   m_Collision: {fileID: 0}
+--- !u!114 &7807637353442397914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049866432037219174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.20392157, b: 1, a: 1}
+  outlineWidth: 3.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2284039913228964381
 GameObject:
   m_ObjectHideFlags: 0

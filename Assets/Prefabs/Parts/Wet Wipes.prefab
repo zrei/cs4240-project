@@ -155,6 +155,8 @@ GameObject:
   - component: {fileID: 2056725021282736216}
   - component: {fileID: 5144594797590877806}
   - component: {fileID: 7740614660510385811}
+  - component: {fileID: 5597547091726787025}
+  - component: {fileID: 5253003050615931241}
   m_Layer: 3
   m_Name: Wet Wipes
   m_TagString: Untagged
@@ -299,6 +301,7 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_ResetSound: {fileID: 0}
 --- !u!114 &2056725021282736216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +315,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Step: 7
-  m_StepComponents: []
+  m_StepComponents:
+  - Component: {fileID: 5597547091726787025}
+    DisabledBeforeStep: 1
+    DisabledAfterStep: 0
   m_StepGameObjects:
   - GameObject: {fileID: 7711969174676226526}
     DisabledBeforeStep: 1
@@ -358,6 +364,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dirtyMaterial: {fileID: 2100000, guid: 7e17c42fa1108334eaa5c9596f180f6c, type: 2}
+--- !u!114 &5597547091726787025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183667424338399532}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.203542, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &5253003050615931241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183667424338399532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb79a2404427124c8d23938c6d9e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Step: 8
+  m_StepComponents:
+  - Component: {fileID: 5597547091726787025}
+    DisabledBeforeStep: 0
+    DisabledAfterStep: 1
+  m_StepGameObjects: []
 --- !u!1 &5793813818197701186
 GameObject:
   m_ObjectHideFlags: 0
