@@ -358,6 +358,7 @@ MonoBehaviour:
   m_AllowedLayers:
     serializedVersion: 2
     m_Bits: 0
+  m_ResetSound: {fileID: 0}
   m_Step: 2
   m_Collision: {fileID: 0}
 --- !u!1 &2284039913228964381
@@ -439,7 +440,7 @@ MonoBehaviour:
   _scoringModifier:
     _positionRotationWeight: 0.5
   _slippiness: 0
-  _supportedGrabTypes: 1
+  _supportedGrabTypes: -1
   _pinchGrabRules:
     _thumbRequirement: 2
     _indexRequirement: 2

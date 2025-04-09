@@ -13,6 +13,9 @@ public abstract class ResetPart : MonoBehaviour
     [SerializeField] private bool m_UseTrigger = false;
     [SerializeField] private LayerMask m_AllowedLayers;
 
+    [Header("Response")]
+    [SerializeField] private SoundCue m_ResetSound;
+
     protected Vector3 m_InitialWorldPosition;
     protected Quaternion m_InitialRotation;
 
@@ -54,7 +57,7 @@ public abstract class ResetPart : MonoBehaviour
         if (!m_IsBeingGrabbed && m_UseMinimumHeight)
         {
             if (CalculateHeight() < m_MinimumHeight)
-                Reset();
+                OnReset();
         }
     }
 
@@ -81,5 +84,15 @@ public abstract class ResetPart : MonoBehaviour
         }
     }
 
-    protected abstract void Reset();
+    protected virtual void Reset()
+    {
+        if (m_ResetSound != null)
+        {
+            m_ResetSound.ToggleSoundPlaying(true);
+        }
+
+        OnReset();
+    }    
+
+    protected abstract void OnReset();
 }

@@ -4,7 +4,7 @@ public class ReturnToPosition : ResetPart
 {
     public VoidEvent OnReposition;
 
-    protected override void Reset()
+    protected override void OnReset()
     {
         transform.position = m_InitialWorldPosition;
         transform.rotation = m_InitialRotation;

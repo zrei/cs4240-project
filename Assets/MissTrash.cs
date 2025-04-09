@@ -16,7 +16,7 @@ public class MissTrash : ResetPart
         }
     }
 
-    protected override void Reset()
+    protected override void OnReset()
     {
         RemovalPart removalPart = GetComponent<RemovalPart>();
         if (removalPart != null)

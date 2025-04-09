@@ -9,6 +9,8 @@ public class StepManager : Singleton<StepManager>
     [Tooltip("Steps in the order they should be performed")]
     [SerializeField] private List<StepSO> m_Steps;
 
+    [SerializeField] private SoundCue m_CompleteStepSound;
+
     private int m_CurrStepIndex;
     public StepSO CurrStepSO => m_Steps[m_CurrStepIndex];
     public int CurrStepNumber => m_CurrStepIndex + 1;
@@ -47,13 +49,18 @@ public class StepManager : Singleton<StepManager>
 
         int targetIndex = m_Steps.IndexOf(targetStepSO);
 
-        var handlers = FindObjectsOfType<SingleStepHandler>();
+        var handlers = FindObjectsByType<SingleStepHandler>(FindObjectsSortMode.None);
         foreach (var handler in handlers)
         {
             handler.ResetHandler();
         }
 
         m_CurrStepIndex = targetIndex;
+
+        if (m_CompleteStepSound != null)
+        {
+            m_CompleteStepSound.ToggleSoundPlaying(true);
+        }
 
         OnGoToStep();
     }

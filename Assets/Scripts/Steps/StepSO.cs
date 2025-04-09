@@ -10,7 +10,8 @@ public enum Steps
     ATTACH_ADHESIVE,
     ATTACH_CLEAN_BAG,
     CLEAN_SKIN,
-    DISPOSE_WET_WIPES
+    DISPOSE_WET_WIPES,
+    LOOK_AT_STOMA_STEP
 }
 
 // can also add substeps if needed

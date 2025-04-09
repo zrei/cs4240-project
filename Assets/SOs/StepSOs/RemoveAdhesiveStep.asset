@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7644b1b6128c04895525e96059ce46, type: 3}
   m_Name: RemoveAdhesiveStep
   m_EditorClassIdentifier: 
-  m_StepInstruction: Remove the adhesive with a pinch grip. Slowly.
+  m_StepInstruction: Remove the adhesive. Slowly.
   m_Step: 2
