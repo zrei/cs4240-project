@@ -7,12 +7,11 @@ public class ArrowBillboardScript : MonoBehaviour
 {
     [SerializeField] private Transform m_TargetA;
     [SerializeField] private Transform m_TargetB;
-    [SerializeField] private float m_ArrowAnimateCycle = 5f;
+    [SerializeField] private float m_ArrowAnimateSpeed = 5f;
     [SerializeField] private float m_ArrowAnimateAmplitude = 10f;
 
     private Camera m_MainCamera;
     private Transform m_ChildSpriteRenderer;
-    private float m_CurrentAnimateTime = 0f;
     private float m_ArrowAnimateDirection = 1f;
 
     private void Start()
@@ -24,7 +23,8 @@ public class ArrowBillboardScript : MonoBehaviour
 
     private void OnDisable()
     {
-        m_CurrentAnimateTime = 0f;
+        m_ChildSpriteRenderer.localPosition = Vector3.zero;
+        m_ArrowAnimateDirection = 1f;
     }
 
     private void Update()
@@ -32,13 +32,12 @@ public class ArrowBillboardScript : MonoBehaviour
         transform.rotation = Quaternion.FromToRotation(-Vector3.up, m_TargetA.position - transform.position);
         transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
 
-        m_CurrentAnimateTime += Time.deltaTime;
-        if (m_CurrentAnimateTime > m_ArrowAnimateCycle)
+        float height = m_ArrowAnimateSpeed * Time.deltaTime * m_ArrowAnimateDirection + m_ChildSpriteRenderer.localPosition.y;
+        if (Mathf.Abs(height) > m_ArrowAnimateAmplitude)
         {
-            m_CurrentAnimateTime -= m_ArrowAnimateCycle;
+            height = m_ArrowAnimateDirection * m_ArrowAnimateAmplitude;
             m_ArrowAnimateDirection *= -1;
         }
-        float height = m_CurrentAnimateTime * m_ArrowAnimateAmplitude * m_ArrowAnimateDirection;
         m_ChildSpriteRenderer.localPosition = new Vector3(0f, height, 0f);
     }
 
