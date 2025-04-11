@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230d0784e633bfe4db46867d40e5f41e, type: 3}
   m_Name: PeelAdhesiveSoundSO
   m_EditorClassIdentifier: 
-  m_AudioClip: {fileID: 8300000, guid: b488cd4b42f305d48813e1bcd9a2be3c, type: 3}
-  m_BaseVolumeMultiplier: 1
+  m_AudioClip: {fileID: 8300000, guid: 9c74ab86d13087c4aa6b1786e924d56b, type: 3}
+  m_BaseVolumeMultiplier: 0.8
   m_BaseSpeedMultiplier: 1

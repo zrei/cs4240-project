@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WipeSkinSoundSO
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: 7319e5f90fbe77b418be83144c3b66df, type: 3}
-  m_BaseVolumeMultiplier: 1
+  m_BaseVolumeMultiplier: 2
   m_BaseSpeedMultiplier: 1

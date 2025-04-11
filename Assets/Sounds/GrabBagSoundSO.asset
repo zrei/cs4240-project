@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230d0784e633bfe4db46867d40e5f41e, type: 3}
   m_Name: GrabBagSoundSO
   m_EditorClassIdentifier: 
-  m_AudioClip: {fileID: 8300000, guid: 92260d03223b1014ab8d9222a8aecb48, type: 3}
+  m_AudioClip: {fileID: 8300000, guid: 9bbeb396fecaebb46ac9ff57fd066ef4, type: 3}
   m_BaseVolumeMultiplier: 1
   m_BaseSpeedMultiplier: 1
