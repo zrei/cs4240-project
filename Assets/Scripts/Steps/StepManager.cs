@@ -57,11 +57,6 @@ public class StepManager : Singleton<StepManager>
 
         m_CurrStepIndex = targetIndex;
 
-        if (m_CompleteStepSound != null)
-        {
-            m_CompleteStepSound.ToggleSoundPlaying(true);
-        }
-
         OnGoToStep();
     }
 
@@ -72,6 +67,11 @@ public class StepManager : Singleton<StepManager>
     {
         Logger.Log(typeof(StepManager), "Complete step: " + CurrStepSO.m_Step, LogLevel.LOG);
         ++m_CurrStepIndex;
+
+        if (m_CompleteStepSound != null)
+        {
+            m_CompleteStepSound.ToggleSoundPlaying(true);
+        }
 
         OnGoToStep();
     }

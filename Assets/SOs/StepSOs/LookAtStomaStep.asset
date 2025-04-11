@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7644b1b6128c04895525e96059ce46, type: 3}
   m_Name: LookAtStomaStep
   m_EditorClassIdentifier: 
-  m_StepInstruction: Follow the arrow and look down!
+  m_StepInstruction: Follow the arrow and look down to see your stoma!
   m_Step: 9

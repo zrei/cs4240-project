@@ -21,15 +21,16 @@ public class ArrowBillboardScript : MonoBehaviour
         SetTarget(m_TargetA);
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
-        m_ChildSpriteRenderer.localPosition = Vector3.zero;
+        if (m_ChildSpriteRenderer != null)
+            m_ChildSpriteRenderer.localPosition = Vector3.zero;
         m_ArrowAnimateDirection = 1f;
     }
 
     private void Update()
     {
-        transform.rotation = Quaternion.FromToRotation(-Vector3.up, m_TargetA.position - transform.position);
+        transform.rotation = Quaternion.FromToRotation(-Vector3.up, m_TargetB.position - transform.position);
         transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
 
         float height = m_ArrowAnimateSpeed * Time.deltaTime * m_ArrowAnimateDirection + m_ChildSpriteRenderer.localPosition.y;
