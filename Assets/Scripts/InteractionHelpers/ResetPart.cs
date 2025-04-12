@@ -57,7 +57,7 @@ public abstract class ResetPart : MonoBehaviour
         if (!m_IsBeingGrabbed && m_UseMinimumHeight)
         {
             if (CalculateHeight() < m_MinimumHeight)
-                OnReset();
+                Reset();
         }
     }
 

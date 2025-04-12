@@ -14,7 +14,8 @@ public class StomaGazeStep : MonoBehaviour
 
     private void OnDestroy()
     {
-        _interactable.selectEntered.RemoveAllListeners();
+        if (_interactable)
+            _interactable.selectEntered.RemoveAllListeners();
     }
 
     private void OnGazeSelected(XRInteraction.SelectEnterEventArgs _)

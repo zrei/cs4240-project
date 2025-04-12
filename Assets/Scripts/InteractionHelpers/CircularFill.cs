@@ -31,15 +31,25 @@ public class CircularFill : MonoBehaviour
         }
         Debug.Log($"NumfilledSegments {NumFilledSegments}");
         m_CircularPlane.SegmentTouchedEvent += OnSegmentTouch;
-        m_CircularPlane.OnEndContactEvent += OnContactEndEvent;
-        m_CircularPlane.OnStartContactEvent += OnContactStartEvent;
+        m_CircularPlane.OnEndContactEvent += OnEndContact;
+        m_CircularPlane.OnStartContactEvent += OnStartContact;
     }
 
     private void OnDestroy()
     {
         m_CircularPlane.SegmentTouchedEvent -= OnSegmentTouch;
-        m_CircularPlane.OnEndContactEvent -= OnContactEndEvent;
-        m_CircularPlane.OnStartContactEvent -= OnContactStartEvent;
+        m_CircularPlane.OnEndContactEvent -= OnEndContact;
+        m_CircularPlane.OnStartContactEvent -= OnStartContact;
+    }
+
+    private void OnStartContact()
+    {
+        OnContactStartEvent?.Invoke();
+    }    
+
+    private void OnEndContact()
+    {
+        OnContactEndEvent?.Invoke();
     }
 
     private void OnSegmentTouch(int segmentIndex)

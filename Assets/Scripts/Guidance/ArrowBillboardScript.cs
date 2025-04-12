@@ -31,7 +31,7 @@ public class ArrowBillboardScript : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.FromToRotation(-Vector3.up, m_TargetB.position - transform.position);
-        transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
+        //transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x, 0, transform.localEulerAngles.z);
 
         float height = m_ArrowAnimateSpeed * Time.deltaTime * m_ArrowAnimateDirection + m_ChildSpriteRenderer.localPosition.y;
         if (Mathf.Abs(height) > m_ArrowAnimateAmplitude)

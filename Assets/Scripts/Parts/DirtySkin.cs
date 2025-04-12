@@ -57,6 +57,7 @@ public class DirtySkin : MonoBehaviour
         {
             m_TimeInContact += Time.deltaTime;
 
+            Debug.Log("Current time in contact: " + m_TimeInContact);
             if (m_TimeInContact > m_TimeToClean)
             {
                 OnComplete();
