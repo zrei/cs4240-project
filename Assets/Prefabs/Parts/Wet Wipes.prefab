@@ -342,7 +342,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7740614660510385811}
         m_TargetAssemblyTypeName: WetWipes, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: DirtyWetWipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
