@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SuccessSound
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: 825dc18b6920b3144b3222d1daff5218, type: 3}
-  m_BaseVolumeMultiplier: 0.5
+  m_BaseVolumeMultiplier: 0.03
   m_BaseSpeedMultiplier: 1

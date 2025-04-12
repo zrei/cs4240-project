@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ErrorSound
   m_EditorClassIdentifier: 
   m_AudioClip: {fileID: 8300000, guid: 35d7abf202e39164f9e41cf99a4e4d7a, type: 3}
-  m_BaseVolumeMultiplier: 2
+  m_BaseVolumeMultiplier: 4
   m_BaseSpeedMultiplier: 1
