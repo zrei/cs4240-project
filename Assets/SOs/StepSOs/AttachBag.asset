@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7644b1b6128c04895525e96059ce46, type: 3}
   m_Name: AttachBag
   m_EditorClassIdentifier: 
-  m_StepInstruction: Attach clean stoma bag.
+  m_StepInstruction: Attach clean stoma bag to your stoma.
   m_Step: 6

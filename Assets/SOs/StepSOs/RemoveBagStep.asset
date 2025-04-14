@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7644b1b6128c04895525e96059ce46, type: 3}
   m_Name: RemoveBagStep
   m_EditorClassIdentifier: 
-  m_StepInstruction: Remove the bag from your stoma.
+  m_StepInstruction: Remove the used bag from your stoma.
   m_Step: 0
