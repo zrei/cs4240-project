@@ -12,7 +12,8 @@ public enum Steps
     CLEAN_SKIN,
     DISPOSE_WET_WIPES,
     LOOK_AT_STOMA_STEP,
-    LOOK_AT_STEPS
+    LOOK_AT_STEPS,
+    ERROR_STEP
 }
 
 // can also add substeps if needed
