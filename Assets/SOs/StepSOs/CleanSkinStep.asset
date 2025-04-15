@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7644b1b6128c04895525e96059ce46, type: 3}
   m_Name: CleanSkinStep
   m_EditorClassIdentifier: 
-  m_StepInstruction: Use the wet wipes to clean the patch of dirty skin.
+  m_StepInstruction: Use the wet wipes to clean the patch of dirty skin around your
+    stoma using a circular motion.
   m_Step: 7
